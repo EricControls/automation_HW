@@ -52,6 +52,9 @@ Now use this bus and the HMI, and build us a cool project that does the followin
 - The system starts with the pump off and waiting for the user to push the button on the HMI
 - When the button is pressed, the pump should turn on until we reach the 9V output from the pressure sensor. 
 - We want to maintain the pressure between 8-10V so feel free to come up with logic and please explain it. 
+- We should implement some safety features such as leak detection, pump malfunctioning, ...
+- Now that we have the basics of the project, please make a fancy UI with more than just a button.  
+- Please also create this design and let us know how you would improve this project (both hardware and software).
 
 
 
