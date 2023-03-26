@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_HMItoPLC_VariantControl" Id="{87811677-9a09-4767-bbea-e680f216aec1}">
+    <Declaration><![CDATA[TYPE st_HMItoPLC_VariantControl :
+STRUCT
+    bExportJSON : BOOL;
+    bWriteJSON : BOOL;
+    Config : ST_Configuration;
+    bNeedsCellDefinition : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

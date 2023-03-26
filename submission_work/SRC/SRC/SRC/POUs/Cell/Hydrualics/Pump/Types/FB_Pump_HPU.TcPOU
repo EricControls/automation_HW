@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Pump_HPU" Id="{3bddb01a-8731-405e-8c01-d5bd231b7f4e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Pump_HPU EXTENDS FB_Pump
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// something fancy like this: https://whyps.com/basics-of-hydraulic-power-units]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Pump_HPU">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

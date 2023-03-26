@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_GenericBrand_Transceiver" Id="{cd4b1846-ce79-448b-abe8-a8fbe7c0c982}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GenericBrand_Transceiver EXTENDS FB_PressureSensor
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="getSignal" Id="{f6943603-3525-457e-9cd6-f74e6ed8300a}">
+      <Declaration><![CDATA[METHOD getSignal : LREAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Pressure Transducer
+ // Using 4..20mA input card with a 0-10v sensor. To make this possible a 500ohm resister was added. Best to buy the correct hardware.
+ // Scale 4.20mA value to 2v-10v
+fBufferedSignal := Scale(signal := fInputSignal,
+                           inputMin := 0.0, // 4mA
+                           inputMax := 32767.0, // 20mA
+                           outputMin := 2, // 2v at 4mA
+                           outputMax := 10);
+
+getSignal := fBufferedSignal;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="setSignal" Id="{36be2125-0b4a-48c6-b8bd-0097dac38cec}">
+      <Declaration><![CDATA[METHOD setSignal : BOOL
+VAR_INPUT
+    input : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fInputSignal := input;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_GenericBrand_Transceiver">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_GenericBrand_Transceiver.getSignal">
+      <LineId Id="20" Count="1" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="14" Count="3" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="18" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_GenericBrand_Transceiver.setSignal">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

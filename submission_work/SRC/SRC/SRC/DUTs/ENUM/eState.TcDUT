@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="eState" Id="{e10a4726-c6f1-404c-bb55-b1bc8a0a747f}">
+    <Declaration><![CDATA[{attribute 'strict'}
+{attribute 'to_string'}
+TYPE eState :
+(
+	eState_Idle, eState_Startup, eState_Ready, eState_Running, eState_Complete, eState_Holding,
+	eState_Held, eState_Stopping, eState_Stopped, eState_Error, eState_Independent, eState_Resetting, eState_Restarting,
+	eState_Warmup
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

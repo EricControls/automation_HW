@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_PressureSensor" Id="{fc5cba41-ac72-4fd3-8065-3ed8fcbd0f20}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PressureSensor EXTENDS StateMachineBase IMPLEMENTS I_PressureSensor
+VAR_INPUT
+    bIsSimulator : BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    fInputSignal : LREAL; // 0-10v
+    fBufferedSignal : LREAL; // 0-10v
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="getSignal" Id="{115ab3f5-275d-439f-ad08-838594ccf2d5}">
+      <Declaration><![CDATA[METHOD getSignal : LREAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[getSignal := 0;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="setSignal" Id="{6f58a8cb-a92e-47f6-bbe4-f00f2e021398}">
+      <Declaration><![CDATA[METHOD setSignal : BOOL
+VAR_INPUT
+    input : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fInputSignal := input;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_PressureSensor">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureSensor.getSignal">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureSensor.setSignal">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

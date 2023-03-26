@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_IO_Outputs" Id="{20d84fad-c6da-49fc-a30b-ccfc3c24ee24}">
+    <Declaration><![CDATA[TYPE st_IO_Outputs :
+STRUCT
+    hydroPump : ST_Pump_Output;
+    robot : ST_Robot_Output;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

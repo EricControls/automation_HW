@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Module_2_Safety_Data_Bitf_8_Byte_x_D7FC8792" Id="{c01eb071-1b43-4d92-babd-861661b419da}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "Inputs_BitfInputs_Bitf_43DA21F575Outputs_BitfOutputs_Bitf_2744F33675"}
+{attribute addProperty CRC "3623651218"}
+{attribute addProperty Size "150"}
+TYPE Module_2_Safety_Data_Bitf_8_Byte_x_D7FC8792 :
+STRUCT
+	{attribute addProperty Name "Inputs_Bitf"}
+	Inputs_Bitf  : Inputs_Bitf_43DA21F5;
+	{attribute addProperty Name "Outputs_Bitf"}
+	Outputs_Bitf  : Outputs_Bitf_2744F336;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

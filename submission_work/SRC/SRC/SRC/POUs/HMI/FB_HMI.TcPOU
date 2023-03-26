@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_HMI" Id="{d4e0be77-d28b-42bb-b1c3-1050a081e7a4}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HMI
+VAR_INPUT
+    PLCtoHMI : st_PLCtoHMI;
+END_VAR
+VAR_OUTPUT
+    HMItoPLC : st_HMItoPLC;
+END_VAR
+VAR
+    delayWriteTON : TON := (PT := T#500MS);
+    writeDurationTON : TON := (PT := T#50MS);
+    //writeJson : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF PLCtoHMI.cell.state = eCellState_Error THEN
+    HMItoPLC.hmi.bShowResetBtn := TRUE;
+END_IF
+
+IF HMItoPLC.cell.bReset THEN
+    HMItoPLC.hmi.bShowResetBtn := FALSE;
+END_IF
+
+IF HMItoPLC.cell.bGoToAuto OR HMItoPLC.cell.bGoToManual THEN
+    IF PLCtoHMI.cell.state = eCellState_Automatic THEN
+        HMItoPLC.cell.bGoToAuto := FALSE;
+    END_IF
+    IF PLCtoHMI.cell.state = eCellState_Manual THEN
+        HMItoPLC.cell.bGoToManual := FALSE;
+    END_IF
+END_IF
+
+IF PLCtoHMI.variantControl.bNeedsCellDefinition THEN
+    IF HMItoPLC.variantControl.bWriteJSON THEN
+         delayWriteTON(IN := TRUE);
+        IF delayWriteTON.Q THEN
+            HMItoPLC.variantControl.bExportJSON := TRUE;
+            HMItoPLC.variantControl.bWriteJSON := FALSE;
+            delayWriteTON(IN := FALSE);
+            writeDurationTON.IN := TRUE;
+        END_IF
+    END_IF
+END_IF
+
+writeDurationTON();
+IF writeDurationTON.Q THEN
+    HMItoPLC.variantControl.bExportJSON := FALSE;
+    writeDurationTON.IN := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_HMI">
+      <LineId Id="112" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="52" Count="1" />
+      <LineId Id="122" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="142" Count="1" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="163" Count="3" />
+      <LineId Id="168" Count="1" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="174" Count="0" />
+      <LineId Id="172" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Queue_FIFO" Id="{bba86fe8-a5e4-4329-bde4-32d262471317}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Queue_FIFO : BOOL
+VAR_INPUT
+	inputSize : UDINT;
+	inputAdr : POINTER TO BYTE;
+	
+	arrSize : UDINT;
+	arrAdr : POINTER TO BYTE;
+END_VAR
+VAR
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FW_MemMove(pDest := arrAdr + inputSize, pSrc := arrAdr, cbLen := arrSize - inputSize);
+
+FW_MemMove(pDest := arrAdr, pSrc := inputAdr, cbLen := inputSize);]]></ST>
+    </Implementation>
+    <LineIds Name="Queue_FIFO">
+      <LineId Id="3" Count="0" />
+      <LineId Id="5" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Module_3_Default_IO_1C907BA3" Id="{3cd5f277-a80b-4fc9-bd89-e96bfb3de155}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "Std_In_4_BytesStd_In_4_Bytes_89628F684Std_Out_4_BytesStd_Out_4_Bytes_1F5BD6B74"}
+{attribute addProperty CRC "479230883"}
+{attribute addProperty Size "8"}
+TYPE Module_3_Default_IO_1C907BA3 :
+STRUCT
+	{attribute addProperty Name "Std_In_4_Bytes"}
+	Std_In_4_Bytes  : Std_In_4_Bytes_89628F68;
+	{attribute addProperty Name "Std_Out_4_Bytes"}
+	Std_Out_4_Bytes  : Std_Out_4_Bytes_1F5BD6B7;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

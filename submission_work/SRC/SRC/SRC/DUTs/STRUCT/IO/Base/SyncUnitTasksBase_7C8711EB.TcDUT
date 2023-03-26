@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="SyncUnitTasksBase_7C8711EB" Id="{373885d2-7675-4dbd-ab95-14a64241fe63}">
+    <Declaration><![CDATA[
+TYPE SyncUnitTasksBase_7C8711EB :
+STRUCT
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

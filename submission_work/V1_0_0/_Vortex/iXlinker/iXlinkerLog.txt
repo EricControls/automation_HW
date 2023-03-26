@@ -1,0 +1,201 @@
+2023-03-15 11:45:32.018 -05:00 [INF] iXlinker started
+2023-03-15 11:45:32.038 -05:00 [INF] with arguments:
+2023-03-15 11:45:32.040 -05:00 [INF] -t D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj -p Release|TwinCAT RT (x64) -c D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\SRC.plcproj -g True -d D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com -n 0
+2023-03-15 11:45:34.171 -05:00 [INF] Reading IO devices in the XAE project: "V1_0_0"!!!
+2023-03-15 11:45:34.187 -05:00 [INF] PdoEntryStructures :1
+2023-03-15 11:45:34.190 -05:00 [INF] PdoStructures :10
+2023-03-15 11:45:34.191 -05:00 [INF] BoxStructures :3
+2023-03-15 11:45:34.193 -05:00 [INF] DeviceStructures :3
+2023-03-15 11:45:34.194 -05:00 [INF] TopologyStructures :2
+2023-03-15 11:45:34.196 -05:00 [INF] Cleaning existing GVL!
+2023-03-15 11:45:34.197 -05:00 [INF] Existing GVL cleared!
+2023-03-15 11:45:34.198 -05:00 [INF] Cleaning existing DUTs!
+2023-03-15 11:45:34.202 -05:00 [INF] Existing DUTs cleared!
+2023-03-15 11:45:34.203 -05:00 [INF] Exporting Pdo entry structures to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PdoEntries
+2023-03-15 11:45:34.206 -05:00 [INF] PDO entry structures exported!!!
+2023-03-15 11:45:34.207 -05:00 [INF] Adding PDO entry structures into the PLC project!!!
+2023-03-15 11:45:34.209 -05:00 [INF] PDO entry structures added into the PLC project!!!
+2023-03-15 11:45:34.210 -05:00 [INF] Exporting Pdo structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs"
+2023-03-15 11:45:34.223 -05:00 [INF] PDO structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs" !!!
+2023-03-15 11:45:34.227 -05:00 [INF] Adding PDO structures into the PLC project!!!
+2023-03-15 11:45:34.229 -05:00 [INF] PDO structures added into the PLC project!!!
+2023-03-15 11:45:34.230 -05:00 [INF] Exporting Box structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes"
+2023-03-15 11:45:34.233 -05:00 [INF] Box structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes" !!!
+2023-03-15 11:45:34.238 -05:00 [INF] Adding Box structures into the PLC project!!!
+2023-03-15 11:45:34.242 -05:00 [INF] Box structures added into the PLC project!!!
+2023-03-15 11:45:34.244 -05:00 [INF] Exporting Device structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices"
+2023-03-15 11:45:34.249 -05:00 [INF] Device structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices" !!!
+2023-03-15 11:45:34.252 -05:00 [INF] Adding Device structures into the PLC project!!!
+2023-03-15 11:45:34.254 -05:00 [INF] Device structures added into the PLC project!!!
+2023-03-15 11:45:34.257 -05:00 [INF] Exporting Topology structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology"
+2023-03-15 11:45:34.262 -05:00 [INF] Topology structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology" !!!
+2023-03-15 11:45:34.265 -05:00 [INF] Adding Topology structures into the PLC project!!!
+2023-03-15 11:45:34.268 -05:00 [INF] Topology structures added into the PLC project!!!
+2023-03-15 11:45:34.270 -05:00 [INF] Exporting Base structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base"
+2023-03-15 11:45:34.279 -05:00 [INF] Base structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base" !!!
+2023-03-15 11:45:34.284 -05:00 [INF] Adding Base structures into the PLC project!!!
+2023-03-15 11:45:34.286 -05:00 [INF] Base structures added into the PLC project!!!
+2023-03-15 11:45:34.289 -05:00 [INF] Exporting GVL : GVL_iXlinker to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 11:45:34.292 -05:00 [INF] GVL GVL_iXlinker exported to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 11:45:34.295 -05:00 [INF] Adding GVL into the PLC project!!!
+2023-03-15 11:45:34.300 -05:00 [INF] GVL added into the PLC project!
+2023-03-15 11:45:34.302 -05:00 [INF] Writing changes of the PLC project SRC into the file SRC.plcproj!!!
+2023-03-15 11:45:34.315 -05:00 [INF] Changes of the PLC project SRC written into the file SRC.plcproj!!!
+2023-03-15 11:45:34.318 -05:00 [INF] Starting process Filename: "D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com", Arguments: ""D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" /build "Release|TwinCAT RT (x64)" /Out "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\\build.txt""
+2023-03-15 11:45:34.322 -05:00 [INF] Building XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" !!!
+2023-03-15 11:46:02.068 -05:00 [INF] XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" built
+2023-03-15 11:46:02.072 -05:00 [INF]  in 27743 ms!!!
+2023-03-15 11:46:02.074 -05:00 [INF] Generating mappings into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 11:46:02.220 -05:00 [INF] Mappings generated into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 11:46:02.223 -05:00 [INF] Complete process 30181 ms!!!
+2023-03-15 12:35:20.290 -05:00 [INF] iXlinker started
+2023-03-15 12:35:20.316 -05:00 [INF] with arguments:
+2023-03-15 12:35:20.318 -05:00 [INF] -t D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj -p Release|TwinCAT RT (x64) -c D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\SRC.plcproj -g True -d D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com -n 0
+2023-03-15 12:35:23.291 -05:00 [INF] Reading IO devices in the XAE project: "V1_0_0"!!!
+2023-03-15 12:35:23.335 -05:00 [INF] PdoEntryStructures :3
+2023-03-15 12:35:23.338 -05:00 [INF] PdoStructures :19
+2023-03-15 12:35:23.340 -05:00 [INF] BoxStructures :4
+2023-03-15 12:35:23.342 -05:00 [INF] DeviceStructures :3
+2023-03-15 12:35:23.346 -05:00 [INF] TopologyStructures :2
+2023-03-15 12:35:23.350 -05:00 [INF] Cleaning existing GVL!
+2023-03-15 12:35:23.352 -05:00 [INF] Existing GVL cleared!
+2023-03-15 12:35:23.354 -05:00 [INF] Cleaning existing DUTs!
+2023-03-15 12:35:23.384 -05:00 [INF] Existing DUTs cleared!
+2023-03-15 12:35:23.387 -05:00 [INF] Exporting Pdo entry structures to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PdoEntries
+2023-03-15 12:35:23.394 -05:00 [INF] PDO entry structures exported!!!
+2023-03-15 12:35:23.397 -05:00 [INF] Adding PDO entry structures into the PLC project!!!
+2023-03-15 12:35:23.399 -05:00 [INF] PDO entry structures added into the PLC project!!!
+2023-03-15 12:35:23.400 -05:00 [INF] Exporting Pdo structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs"
+2023-03-15 12:35:23.423 -05:00 [INF] PDO structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs" !!!
+2023-03-15 12:35:23.426 -05:00 [INF] Adding PDO structures into the PLC project!!!
+2023-03-15 12:35:23.428 -05:00 [INF] PDO structures added into the PLC project!!!
+2023-03-15 12:35:23.431 -05:00 [INF] Exporting Box structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes"
+2023-03-15 12:35:23.439 -05:00 [INF] Box structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes" !!!
+2023-03-15 12:35:23.445 -05:00 [INF] Adding Box structures into the PLC project!!!
+2023-03-15 12:35:23.448 -05:00 [INF] Box structures added into the PLC project!!!
+2023-03-15 12:35:23.451 -05:00 [INF] Exporting Device structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices"
+2023-03-15 12:35:23.463 -05:00 [INF] Device structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices" !!!
+2023-03-15 12:35:23.469 -05:00 [INF] Adding Device structures into the PLC project!!!
+2023-03-15 12:35:23.473 -05:00 [INF] Device structures added into the PLC project!!!
+2023-03-15 12:35:23.477 -05:00 [INF] Exporting Topology structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology"
+2023-03-15 12:35:23.485 -05:00 [INF] Topology structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology" !!!
+2023-03-15 12:35:23.491 -05:00 [INF] Adding Topology structures into the PLC project!!!
+2023-03-15 12:35:23.498 -05:00 [INF] Topology structures added into the PLC project!!!
+2023-03-15 12:35:23.503 -05:00 [INF] Exporting Base structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base"
+2023-03-15 12:35:23.521 -05:00 [INF] Base structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base" !!!
+2023-03-15 12:35:23.525 -05:00 [INF] Adding Base structures into the PLC project!!!
+2023-03-15 12:35:23.529 -05:00 [INF] Base structures added into the PLC project!!!
+2023-03-15 12:35:23.533 -05:00 [INF] Exporting GVL : GVL_iXlinker to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:35:23.537 -05:00 [INF] GVL GVL_iXlinker exported to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:35:23.542 -05:00 [INF] Adding GVL into the PLC project!!!
+2023-03-15 12:35:23.545 -05:00 [INF] GVL added into the PLC project!
+2023-03-15 12:35:23.550 -05:00 [INF] Writing changes of the PLC project SRC into the file SRC.plcproj!!!
+2023-03-15 12:35:23.567 -05:00 [INF] Changes of the PLC project SRC written into the file SRC.plcproj!!!
+2023-03-15 12:35:23.571 -05:00 [INF] Starting process Filename: "D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com", Arguments: ""D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" /build "Release|TwinCAT RT (x64)" /Out "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\\build.txt""
+2023-03-15 12:35:23.581 -05:00 [INF] Building XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" !!!
+2023-03-15 12:36:08.103 -05:00 [INF] XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" built
+2023-03-15 12:36:08.106 -05:00 [INF]  in 44517 ms!!!
+2023-03-15 12:36:08.113 -05:00 [INF] Generating mappings into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:36:08.299 -05:00 [INF] Mappings generated into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:36:08.302 -05:00 [INF] Complete process 47980 ms!!!
+2023-03-15 12:40:57.532 -05:00 [INF] iXlinker started
+2023-03-15 12:40:57.550 -05:00 [INF] with arguments:
+2023-03-15 12:40:57.551 -05:00 [INF] -t D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj -p Release|TwinCAT RT (x64) -c D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\SRC.plcproj -g True -d D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com -n 0
+2023-03-15 12:40:59.613 -05:00 [INF] Reading IO devices in the XAE project: "V1_0_0"!!!
+2023-03-15 12:40:59.643 -05:00 [INF] PdoEntryStructures :3
+2023-03-15 12:40:59.646 -05:00 [INF] PdoStructures :19
+2023-03-15 12:40:59.648 -05:00 [INF] BoxStructures :4
+2023-03-15 12:40:59.649 -05:00 [INF] DeviceStructures :3
+2023-03-15 12:40:59.650 -05:00 [INF] TopologyStructures :2
+2023-03-15 12:40:59.652 -05:00 [INF] Cleaning existing GVL!
+2023-03-15 12:40:59.655 -05:00 [INF] Existing GVL cleared!
+2023-03-15 12:40:59.657 -05:00 [INF] Cleaning existing DUTs!
+2023-03-15 12:40:59.680 -05:00 [INF] Existing DUTs cleared!
+2023-03-15 12:40:59.682 -05:00 [INF] Exporting Pdo entry structures to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PdoEntries
+2023-03-15 12:40:59.687 -05:00 [INF] PDO entry structures exported!!!
+2023-03-15 12:40:59.690 -05:00 [INF] Adding PDO entry structures into the PLC project!!!
+2023-03-15 12:40:59.692 -05:00 [INF] PDO entry structures added into the PLC project!!!
+2023-03-15 12:40:59.694 -05:00 [INF] Exporting Pdo structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs"
+2023-03-15 12:40:59.711 -05:00 [INF] PDO structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs" !!!
+2023-03-15 12:40:59.714 -05:00 [INF] Adding PDO structures into the PLC project!!!
+2023-03-15 12:40:59.717 -05:00 [INF] PDO structures added into the PLC project!!!
+2023-03-15 12:40:59.718 -05:00 [INF] Exporting Box structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes"
+2023-03-15 12:40:59.724 -05:00 [INF] Box structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes" !!!
+2023-03-15 12:40:59.729 -05:00 [INF] Adding Box structures into the PLC project!!!
+2023-03-15 12:40:59.732 -05:00 [INF] Box structures added into the PLC project!!!
+2023-03-15 12:40:59.735 -05:00 [INF] Exporting Device structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices"
+2023-03-15 12:40:59.741 -05:00 [INF] Device structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices" !!!
+2023-03-15 12:40:59.745 -05:00 [INF] Adding Device structures into the PLC project!!!
+2023-03-15 12:40:59.747 -05:00 [INF] Device structures added into the PLC project!!!
+2023-03-15 12:40:59.750 -05:00 [INF] Exporting Topology structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology"
+2023-03-15 12:40:59.756 -05:00 [INF] Topology structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology" !!!
+2023-03-15 12:40:59.762 -05:00 [INF] Adding Topology structures into the PLC project!!!
+2023-03-15 12:40:59.765 -05:00 [INF] Topology structures added into the PLC project!!!
+2023-03-15 12:40:59.767 -05:00 [INF] Exporting Base structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base"
+2023-03-15 12:40:59.781 -05:00 [INF] Base structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base" !!!
+2023-03-15 12:40:59.786 -05:00 [INF] Adding Base structures into the PLC project!!!
+2023-03-15 12:40:59.788 -05:00 [INF] Base structures added into the PLC project!!!
+2023-03-15 12:40:59.791 -05:00 [INF] Exporting GVL : GVL_iXlinker to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:40:59.797 -05:00 [INF] GVL GVL_iXlinker exported to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:40:59.800 -05:00 [INF] Adding GVL into the PLC project!!!
+2023-03-15 12:40:59.803 -05:00 [INF] GVL added into the PLC project!
+2023-03-15 12:40:59.805 -05:00 [INF] Writing changes of the PLC project SRC into the file SRC.plcproj!!!
+2023-03-15 12:40:59.820 -05:00 [INF] Changes of the PLC project SRC written into the file SRC.plcproj!!!
+2023-03-15 12:40:59.823 -05:00 [INF] Starting process Filename: "D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com", Arguments: ""D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" /build "Release|TwinCAT RT (x64)" /Out "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\\build.txt""
+2023-03-15 12:40:59.829 -05:00 [INF] Building XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" !!!
+2023-03-15 12:41:44.490 -05:00 [INF] XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" built
+2023-03-15 12:41:44.495 -05:00 [INF]  in 44655 ms!!!
+2023-03-15 12:41:44.504 -05:00 [INF] Generating mappings into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:41:44.921 -05:00 [INF] Mappings generated into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:41:44.927 -05:00 [INF] Complete process 47374 ms!!!
+2023-03-15 12:42:30.313 -05:00 [INF] Not parsed
+2023-03-15 12:45:58.289 -05:00 [INF] iXlinker started
+2023-03-15 12:45:58.307 -05:00 [INF] with arguments:
+2023-03-15 12:45:58.309 -05:00 [INF] -t D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj -p Release|TwinCAT RT (x64) -c D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\SRC.plcproj -g True -d D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com -n 0
+2023-03-15 12:45:59.909 -05:00 [INF] Reading IO devices in the XAE project: "V1_0_0"!!!
+2023-03-15 12:45:59.935 -05:00 [INF] PdoEntryStructures :3
+2023-03-15 12:45:59.938 -05:00 [INF] PdoStructures :19
+2023-03-15 12:45:59.939 -05:00 [INF] BoxStructures :4
+2023-03-15 12:45:59.940 -05:00 [INF] DeviceStructures :3
+2023-03-15 12:45:59.941 -05:00 [INF] TopologyStructures :2
+2023-03-15 12:45:59.943 -05:00 [INF] Cleaning existing GVL!
+2023-03-15 12:45:59.945 -05:00 [INF] Existing GVL cleared!
+2023-03-15 12:45:59.946 -05:00 [INF] Cleaning existing DUTs!
+2023-03-15 12:45:59.966 -05:00 [INF] Existing DUTs cleared!
+2023-03-15 12:45:59.968 -05:00 [INF] Exporting Pdo entry structures to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PdoEntries
+2023-03-15 12:45:59.972 -05:00 [INF] PDO entry structures exported!!!
+2023-03-15 12:45:59.973 -05:00 [INF] Adding PDO entry structures into the PLC project!!!
+2023-03-15 12:45:59.975 -05:00 [INF] PDO entry structures added into the PLC project!!!
+2023-03-15 12:45:59.977 -05:00 [INF] Exporting Pdo structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs"
+2023-03-15 12:46:00.009 -05:00 [INF] PDO structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\PDOs" !!!
+2023-03-15 12:46:00.014 -05:00 [INF] Adding PDO structures into the PLC project!!!
+2023-03-15 12:46:00.016 -05:00 [INF] PDO structures added into the PLC project!!!
+2023-03-15 12:46:00.018 -05:00 [INF] Exporting Box structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes"
+2023-03-15 12:46:00.024 -05:00 [INF] Box structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Boxes" !!!
+2023-03-15 12:46:00.027 -05:00 [INF] Adding Box structures into the PLC project!!!
+2023-03-15 12:46:00.032 -05:00 [INF] Box structures added into the PLC project!!!
+2023-03-15 12:46:00.034 -05:00 [INF] Exporting Device structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices"
+2023-03-15 12:46:00.040 -05:00 [INF] Device structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Devices" !!!
+2023-03-15 12:46:00.044 -05:00 [INF] Adding Device structures into the PLC project!!!
+2023-03-15 12:46:00.049 -05:00 [INF] Device structures added into the PLC project!!!
+2023-03-15 12:46:00.052 -05:00 [INF] Exporting Topology structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology"
+2023-03-15 12:46:00.058 -05:00 [INF] Topology structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Topology" !!!
+2023-03-15 12:46:00.064 -05:00 [INF] Adding Topology structures into the PLC project!!!
+2023-03-15 12:46:00.067 -05:00 [INF] Topology structures added into the PLC project!!!
+2023-03-15 12:46:00.069 -05:00 [INF] Exporting Base structures to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base"
+2023-03-15 12:46:00.080 -05:00 [INF] Base structures exported to the folder "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\DUTs\IO\Base" !!!
+2023-03-15 12:46:00.084 -05:00 [INF] Adding Base structures into the PLC project!!!
+2023-03-15 12:46:00.086 -05:00 [INF] Base structures added into the PLC project!!!
+2023-03-15 12:46:00.088 -05:00 [INF] Exporting GVL : GVL_iXlinker to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:46:00.096 -05:00 [INF] GVL GVL_iXlinker exported to the folder D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\..\..\SRC\SRC\SRC\GVLs
+2023-03-15 12:46:00.099 -05:00 [INF] Adding GVL into the PLC project!!!
+2023-03-15 12:46:00.101 -05:00 [INF] GVL added into the PLC project!
+2023-03-15 12:46:00.102 -05:00 [INF] Writing changes of the PLC project SRC into the file SRC.plcproj!!!
+2023-03-15 12:46:00.118 -05:00 [INF] Changes of the PLC project SRC written into the file SRC.plcproj!!!
+2023-03-15 12:46:00.120 -05:00 [INF] Starting process Filename: "D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com", Arguments: ""D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" /build "Release|TwinCAT RT (x64)" /Out "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\\build.txt""
+2023-03-15 12:46:00.127 -05:00 [INF] Building XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" !!!
+2023-03-15 12:46:36.501 -05:00 [INF] XAE project: "D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj" built
+2023-03-15 12:46:36.505 -05:00 [INF]  in 36371 ms!!!
+2023-03-15 12:46:36.508 -05:00 [INF] Generating mappings into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:46:36.630 -05:00 [INF] Mappings generated into the project file D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj!!!
+2023-03-15 12:46:36.633 -05:00 [INF] Complete process 38322 ms!!!

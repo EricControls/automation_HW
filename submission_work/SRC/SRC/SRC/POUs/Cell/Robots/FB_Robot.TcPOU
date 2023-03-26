@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Robot" Id="{0b46e644-5e2e-4b3b-af85-96887625ce47}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Robot EXTENDS StateMachineBase IMPLEMENTS I_Robot
+VAR_INPUT
+    bIsSimulator : BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Robot">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

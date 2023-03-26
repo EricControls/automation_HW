@@ -1,0 +1,2318 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.22">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{CA258871-18DD-826A-A695-75BD1DC51649}" AutoDeleteType="true">Status_F2CE6D91</Name>
+			<BitSize>56</BitSize>
+			<SubItem>
+				<Name>Underrange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Overrange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Limit_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Limit_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Error</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TxPDO_State</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TxPDO_Toggle</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>GeneratedUsingTerminal: EL3024-0000-0019</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
+			<BitSize>48</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+			<Format>
+				<Printf>%d.%d.%d.%d.%d.%d</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+				<Parameter>[2]</Parameter>
+				<Parameter>[3]</Parameter>
+				<Parameter>[4]</Parameter>
+				<Parameter>[5]</Parameter>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000042}" TcBaseType="true" CName="AmsAddr">AMSADDR</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>netId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>port</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<Format>
+				<Printf>%d.%d.%d.%d.%d.%d:%d</Printf>
+				<Parameter>.netId[0]</Parameter>
+				<Parameter>.netId[1]</Parameter>
+				<Parameter>.netId[2]</Parameter>
+				<Parameter>.netId[3]</Parameter>
+				<Parameter>.netId[4]</Parameter>
+				<Parameter>.netId[5]</Parameter>
+				<Parameter>.port</Parameter>
+			</Format>
+			<Format Name="Iec">
+				<Printf>(netId:=[%d.%d.%d.%d.%d.%d], port :=%d)</Printf>
+				<Parameter>.netId[0]</Parameter>
+				<Parameter>.netId[1]</Parameter>
+				<Parameter>.netId[2]</Parameter>
+				<Parameter>.netId[3]</Parameter>
+				<Parameter>.netId[4]</Parameter>
+				<Parameter>.netId[5]</Parameter>
+				<Parameter>.port</Parameter>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{CD72406F-5763-B47E-164A-0A55036C0471}" AutoDeleteType="true">FSOE_892AE692</Name>
+			<BitSize>608</BitSize>
+			<SubItem>
+				<Name>FSOE_Command</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_NHL</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_AF</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_FF</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_ZS</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_PE</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_EXT</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_T1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_T2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_NHE</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_BSQ</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_SHS1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_SHS2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_RES_13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_RES_14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_PSA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_0_SP</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Slave_CRC_0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SO</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RR</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_JF</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>176</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_VRED</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>184</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SBH_6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_SOS</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RES_28</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RES_29</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RES_30</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>264</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RES_31</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>272</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_1_RES_32</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>280</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Slave_CRC_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>304</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>312</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>328</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>344</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>360</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR9</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>368</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR10</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>376</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR11</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR12</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>392</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>400</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>408</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR15</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_2_MR16</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>424</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Slave_CRC_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_49</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_50</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>456</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_51</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>464</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_52</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>472</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_53</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_54</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>488</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_55</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>496</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_56</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>504</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_57</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_58</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>520</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_59</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>528</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_60</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_61</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_62</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>552</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_63</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>560</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Inp_D_3_RES_64</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>568</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Slave_CRC_3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_ConnID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{54F04027-84A3-F9F9-B2D7-11AA5FC3469E}" AutoDeleteType="true">FSOE_8292E3BB</Name>
+			<BitSize>608</BitSize>
+			<SubItem>
+				<Name>FSOE_Command</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_NHE</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_BS</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_QBS</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_SHS1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_SHS2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_E2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_E7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_US2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_SBH</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_RES_8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_0_SPA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Master_CRC_0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_JR</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_VRED</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>176</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>184</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_SBH_6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>264</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>272</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_1_RES_8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>280</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Master_CRC_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>304</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>312</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>328</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>344</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>360</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER9</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>368</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER10</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>376</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER11</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER12</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>392</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>400</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>408</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER15</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_2_UER16</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>424</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Master_CRC_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>456</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>464</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>472</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>488</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>496</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>504</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ9</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ10</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>520</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ11</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>528</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ12</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>552</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ15</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>560</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Out_D_3_WZ16</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>568</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_Master_CRC_3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSOE_ConnID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
+			<BitSize>1</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-00200000000C}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..11] OF BIT</Name>
+			<BitSize>12</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>12</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+		<ImageData Id="1001">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff00ff0000ff0000ff0000ff0000ff0000ff00c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+		<ImageData Id="1002">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000120b0000120b00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+		<ImageData Id="1003">424de6000000000000007600000028000000100000000e000000010004000000000070000000000000000000000010000000000000001c120800244aa500203262002462ee001c273f00245ad500243a7c001c222b001c1a1e002472fc00244fb7001c2a4d00243a7100246afc0024428d001c1a1300d5bbbbbbedddddddddb8777fcdd9dd9dd580ffffcddddddd9e7780f47b5dd9ddd3d35cb700e9ddd9ddd9d9de88a9ddddd9dddd9abb3dddddddddd99e04d9dd9dddddddd20adddddd9dd9d958b9ddd9ddddddd18cddddddd9dd5554e99d999d1dd9b07b2ee111e1add5bb777774bb6add</ImageData>
+		<ImageData Id="1004">424de6000000000000007600000028000000100000000e000000010004000000000070000000000000000000000000000000000000000000000000008000008000000080800080000000800080008080000080808000c0c0c0000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00bb1111113bbbbbbbbb1000001bbbbbbbbb0000001bbbbbbbb300000001bbbbbbbbbbb110003bbbbbbbbbbbb3003bbbbbbbbbbbb311bbbbbbbbbbbbb300bbbbbbbbbbbbb103bbbbbbbbbbbbb01bbbbbbbbbbbb301bbbbbbbbbbbbb03bbbbbbb3bbb1001133333333bb3110000001113bb</ImageData>
+	</ImageDatas>
+	<Project ProjectGUID="{7EE610BD-F300-4D09-862B-8E87A9DCEB22}" Target64Bit="true" ShowHideConfigurations="#x106">
+		<System>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{FA64A84F-836B-4A0C-A462-5AFDF2AF2F03}" Name="SRC" PrjFilePath="..\..\SRC\SRC\SRC\SRC.plcproj" TmcFilePath="..\..\SRC\SRC\SRC\SRC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="..\..\SRC\SRC\SRC\SRC.tmc">
+					<Name>SRC Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.WcState.InputToggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.InfoData.AdsAddr</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000042}">AMSADDR</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_2_EL3024.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_toggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_state</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.External_device_not_connected</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_2_Safety_Data_Bitf_8_Byte_x.Inputs_Bitf.FSOE</Name>
+							<Type GUID="{CD72406F-5763-B47E-164A-0A55036C0471}">FSOE_892AE692</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_In_4_Bytes.Input_DWORD_0</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.WcState.InputToggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.InfoData.AdsAddr</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000042}">AMSADDR</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.InfoData.AoeNetId</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.unreferenced.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.unreferenced.InfoData.ObjectId</Name>
+							<Type>DWORD</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.unreferenced.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.unreferenced.InfoData.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.PlcTask.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.PlcTask.InfoData.ObjectId</Name>
+							<Type>DWORD</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.PlcTask.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.SyncUnits._default.PlcTask.InfoData.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Inputs.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Inputs.DevState</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Inputs.Frm0State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Inputs.Frm0WcState</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Inputs.Frm0InputToggle</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.ChangeCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.DevId</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.AmsNetId</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.CfgSlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.DcToTcTimeOffset</Name>
+							<Type>LINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.InfoData.DcToExtTimeOffset</Name>
+							<Type>LINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status</Name>
+							<Type GUID="{CA258871-18DD-826A-A695-75BD1DC51649}">Status_F2CE6D91</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Value</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.WcState.InputToggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.InfoData.AdsAddr</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000042}">AMSADDR</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_toggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_state</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.External_device_not_connected</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_2_Safety_Data_Bitf_8_Byte_x.Inputs_Bitf.FSOE</Name>
+							<Type GUID="{CD72406F-5763-B47E-164A-0A55036C0471}">FSOE_892AE692</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_In_4_Bytes.Input_DWORD_0</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.WcState.InputToggle</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.AdsAddr</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000042}">AMSADDR</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.AoeNetId</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.unreferenced.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.unreferenced.InfoData.ObjectId</Name>
+							<Type>DWORD</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.unreferenced.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.unreferenced.InfoData.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.WcState.WcState</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.ObjectId</Name>
+							<Type>DWORD</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Inputs.SlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Inputs.DevState</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Inputs.Frm0State</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Inputs.Frm0WcState</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Inputs.Frm0InputToggle</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.ChangeCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.DevId</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.AmsNetId</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.CfgSlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.DcToTcTimeOffset</Name>
+							<Type>LINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.InfoData.DcToExtTimeOffset</Name>
+							<Type>LINT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.Channel_1.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.Channel_2.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.Channel_3.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Term_1_EK1100.Term_3_EL2634.Channel_4.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_2_Safety_Data_Bitf_8_Byte_x.Outputs_Bitf.FSOE</Name>
+							<Type GUID="{54F04027-84A3-F9F9-B2D7-11AA5FC3469E}">FSOE_8292E3BB</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_Out_4_Bytes.Output_DWORD_0</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Outputs.DevCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Outputs.Frm0Ctrl</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Cell.topology.E_Bus_Raw.Outputs.Frm0WcCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_1.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_2.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_3.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_4.Output</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_2_Safety_Data_Bitf_8_Byte_x.Outputs_Bitf.FSOE</Name>
+							<Type GUID="{54F04027-84A3-F9F9-B2D7-11AA5FC3469E}">FSOE_8292E3BB</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_Out_4_Bytes.Output_DWORD_0</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Outputs.DevCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Outputs.Frm0Ctrl</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_iXlinker.E_Bus.Outputs.Frm0WcCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="192.168.0.8.2.1" RemoteName="E-Bus" InfoImageId="2">
+				<Name>E-Bus</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc></DeviceDesc>
+						<DeviceName></DeviceName>
+						<DeviceData>000000000000</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="1" AddrType="9" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="1" BoxType="9099">
+					<Name>Term 1 (EK1100)</Name>
+					<ImageId>1000</ImageId>
+					<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x00ffffff"/>
+					<Box Id="2" BoxType="9099" BoxFlags="#x00000020">
+						<Name>Term 2 (EL3024)</Name>
+						<ImageId>1001</ImageId>
+						<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x0bd03052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL3024 4Ch. Ana. Input 4-20mA DIFF" Desc="EL3024" PortABoxInfo="#x01000001">
+							<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>
+							<SyncMan>801080002200010002000000800080008000801022010000</SyncMan>
+							<SyncMan>001100000400000003000000000000000000001104000000</SyncMan>
+							<SyncMan>801110002000010004000000000000001000801120010000</SyncMan>
+							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
+							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+							<BootStrapData>0010f400f410f400</BootStrapData>
+							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
+								<ExcludePdo>#x1a01</ExcludePdo>
+								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Underrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Overrange" Index="#x6000" Sub="#x02">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Overrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 1" Index="#x6000" Sub="#x03">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit1
+Bit1: Value bigger/equal Limit1]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 2" Index="#x6000" Sub="#x05">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit2
+Bit1: Value bigger/equal Limit2]]></Comment>
+								</Entry>
+								<Entry Name="Status__Error" Index="#x6000" Sub="#x07">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit set when Over- or Underrange]]></Comment>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__TxPDO State" Index="#x6000" Sub="#x0f">
+									<Type>BIT</Type>
+									<Comment><![CDATA[TRUE when this TxPDO is not valid]]></Comment>
+								</Entry>
+								<Entry Name="Status__TxPDO Toggle" Index="#x6000" Sub="#x10">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit toggles everytime when new value available]]></Comment>
+								</Entry>
+								<Entry Name="Value" Index="#x6000" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Compact Channel 1" Index="#x1a01" Flags="#x0010">
+								<ExcludePdo>#x1a00</ExcludePdo>
+								<Entry Name="Value" Index="#x6000" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Standard Channel 2" Index="#x1a02" Flags="#x0010" SyncMan="3">
+								<ExcludePdo>#x1a03</ExcludePdo>
+								<Entry Name="Status__Underrange" Index="#x6010" Sub="#x01">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Underrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Overrange" Index="#x6010" Sub="#x02">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Overrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 1" Index="#x6010" Sub="#x03">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit1
+Bit1: Value bigger/equal Limit1]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 2" Index="#x6010" Sub="#x05">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit2
+Bit1: Value bigger/equal Limit2]]></Comment>
+								</Entry>
+								<Entry Name="Status__Error" Index="#x6010" Sub="#x07">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit set when Over- or Underrange]]></Comment>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__TxPDO State" Index="#x6010" Sub="#x0f">
+									<Type>BIT</Type>
+									<Comment><![CDATA[TRUE when this TxPDO is not valid]]></Comment>
+								</Entry>
+								<Entry Name="Status__TxPDO Toggle" Index="#x6010" Sub="#x10">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit toggles everytime when new value available]]></Comment>
+								</Entry>
+								<Entry Name="Value" Index="#x6010" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Compact Channel 2" Index="#x1a03" Flags="#x0010">
+								<ExcludePdo>#x1a02</ExcludePdo>
+								<Entry Name="Value" Index="#x6010" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Standard Channel 3" Index="#x1a04" Flags="#x0010" SyncMan="3">
+								<ExcludePdo>#x1a05</ExcludePdo>
+								<Entry Name="Status__Underrange" Index="#x6020" Sub="#x01">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Underrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Overrange" Index="#x6020" Sub="#x02">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Overrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 1" Index="#x6020" Sub="#x03">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit1
+Bit1: Value bigger/equal Limit1]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 2" Index="#x6020" Sub="#x05">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit2
+Bit1: Value bigger/equal Limit2]]></Comment>
+								</Entry>
+								<Entry Name="Status__Error" Index="#x6020" Sub="#x07">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit set when Over- or Underrange]]></Comment>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__TxPDO State" Index="#x6020" Sub="#x0f">
+									<Type>BIT</Type>
+									<Comment><![CDATA[TRUE when this TxPDO is not valid]]></Comment>
+								</Entry>
+								<Entry Name="Status__TxPDO Toggle" Index="#x6020" Sub="#x10">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit toggles everytime when new value available]]></Comment>
+								</Entry>
+								<Entry Name="Value" Index="#x6020" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Compact Channel 3" Index="#x1a05" Flags="#x0010">
+								<ExcludePdo>#x1a04</ExcludePdo>
+								<Entry Name="Value" Index="#x6020" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Standard Channel 4" Index="#x1a06" Flags="#x0010" SyncMan="3">
+								<ExcludePdo>#x1a07</ExcludePdo>
+								<Entry Name="Status__Underrange" Index="#x6030" Sub="#x01">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Underrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Overrange" Index="#x6030" Sub="#x02">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Overrange event active]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 1" Index="#x6030" Sub="#x03">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit1
+Bit1: Value bigger/equal Limit1]]></Comment>
+								</Entry>
+								<Entry Name="Status__Limit 2" Index="#x6030" Sub="#x05">
+									<Type>BIT2</Type>
+									<Comment><![CDATA[Bit0: Value smaller/equal Limit2
+Bit1: Value bigger/equal Limit2]]></Comment>
+								</Entry>
+								<Entry Name="Status__Error" Index="#x6030" Sub="#x07">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit set when Over- or Underrange]]></Comment>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__">
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+								</Entry>
+								<Entry Name="Status__TxPDO State" Index="#x6030" Sub="#x0f">
+									<Type>BIT</Type>
+									<Comment><![CDATA[TRUE when this TxPDO is not valid]]></Comment>
+								</Entry>
+								<Entry Name="Status__TxPDO Toggle" Index="#x6030" Sub="#x10">
+									<Type>BIT</Type>
+									<Comment><![CDATA[Bit toggles everytime when new value available]]></Comment>
+								</Entry>
+								<Entry Name="Value" Index="#x6030" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AI Compact Channel 4" Index="#x1a07" Flags="#x0010">
+								<ExcludePdo>#x1a06</ExcludePdo>
+								<Entry Name="Value" Index="#x6030" Sub="#x11" Flags="#x00040000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<CoeProfile ProfileNo="19665801"/>
+							<CoeProfile ProfileNo="19665801"/>
+							<CoeProfile ProfileNo="19665801"/>
+							<CoeProfile ProfileNo="19665801"/>
+						</EtherCAT>
+					</Box>
+					<Box Id="3" BoxType="9099">
+						<Name>Term 3 (EL2634)</Name>
+						<ImageId>1002</ImageId>
+						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0a4a3052" RevisionNo="#x00110000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2634 4Ch. Relay Output, NO (250V AC / 30V DC)" Desc="EL2634" PortABoxInfo="#x01000002">
+							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
+							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
+								<Entry Name="Output" Index="#x7000" Sub="#x01">
+									<Type>BIT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
+								<Entry Name="Output" Index="#x7010" Sub="#x01">
+									<Type>BIT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
+								<Entry Name="Output" Index="#x7020" Sub="#x01">
+									<Type>BIT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
+								<Entry Name="Output" Index="#x7030" Sub="#x01">
+									<Type>BIT</Type>
+								</Entry>
+							</Pdo>
+						</EtherCAT>
+					</Box>
+				</Box>
+				<Box Id="4" BoxType="9099" BoxFlags="#x00000020">
+					<Name>X001 (KRC4 secondary EL6695-1001)</Name>
+					<ImageId>1003</ImageId>
+					<EtherCAT SlaveType="3" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x000060c8" ProductCode="#x00000071" RevisionNo="#x00040000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" PortPhys="17" MaxSlotCount="3" Type="KRC4 secondary EL6695-1001" Desc="KRC4 secondary EL6695-1001" PortABoxInfo="#x02000001">
+						<SyncMan>0010000426000100010000008000da050004001026010000</SyncMan>
+						<SyncMan>0014000422000100020000008000da050004001422010000</SyncMan>
+						<SyncMan>001817006400010003000000000000001700001864010000</SyncMan>
+						<SyncMan>002919002000010004000000000000001900002920010000</SyncMan>
+						<Fmmu>0000000000000000001800020100000001000000000000000000000000000000</Fmmu>
+						<Fmmu>0000000000000000002900010100000002000000000000000000000000000000</Fmmu>
+						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<BootStrapData>0010140200141402</BootStrapData>
+						<MBoxUserCmdData>020003000c0000000000000003000000000000000000000000000000000000002008f000040000009566341200</MBoxUserCmdData>
+						<Pdo Name="Compact" Index="#x1a01" Flags="#x0090" SyncMan="3">
+							<Entry>
+								<Type GUID="{18071995-0000-0000-0000-00200000000C}">ARRAY [0..11] OF BIT</Type>
+							</Entry>
+							<Entry Name="TxPDO toggle" Index="#x1801" Sub="#x09">
+								<Type>BIT</Type>
+								<Comment><![CDATA[Bit toggles when new data from other side received]]></Comment>
+							</Entry>
+							<Entry Name="TxPDO state" Index="#x1801" Sub="#x07">
+								<Type>BIT</Type>
+								<Comment><![CDATA[0: Other side is in OP state
+>0: Error]]></Comment>
+							</Entry>
+							<Entry>
+								<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+							</Entry>
+							<Entry Name="External device not connected" Index="#x10f4" Sub="#x10">
+								<Type>BIT</Type>
+								<Comment><![CDATA[0: External device connected
+1: External device not connected]]></Comment>
+							</Entry>
+						</Pdo>
+						<Pdo Name="Inputs Bitf" Index="#x1a0a" Flags="#x0080" SyncMan="3">
+							<Entry Name="FSOE__FSOE Command" Index="#x6000" Sub="#x01">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_NHL" Index="#x6002" Sub="#x01">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_AF" Index="#x6002" Sub="#x02">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_FF" Index="#x6002" Sub="#x03">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_ZS" Index="#x6002" Sub="#x04">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_PE" Index="#x6002" Sub="#x05">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_EXT" Index="#x6002" Sub="#x06">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_T1" Index="#x6002" Sub="#x07">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_T2" Index="#x6002" Sub="#x08">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_NHE" Index="#x6002" Sub="#x09">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_BSQ" Index="#x6002" Sub="#x0a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_SHS1" Index="#x6002" Sub="#x0b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_SHS2" Index="#x6002" Sub="#x0c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_RES_13" Index="#x6002" Sub="#x0d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_RES_14" Index="#x6002" Sub="#x0e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_PSA" Index="#x6002" Sub="#x0f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_0_SP" Index="#x6002" Sub="#x10">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Slave CRC_0" Index="#x6000" Sub="#x03">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SO" Index="#x6002" Sub="#x11">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RR" Index="#x6002" Sub="#x12">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_JF" Index="#x6002" Sub="#x13">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_VRED" Index="#x6002" Sub="#x14">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_1" Index="#x6002" Sub="#x15">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_2" Index="#x6002" Sub="#x16">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_3" Index="#x6002" Sub="#x17">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_4" Index="#x6002" Sub="#x18">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_5" Index="#x6002" Sub="#x19">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SBH_6" Index="#x6002" Sub="#x1a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_SOS" Index="#x6002" Sub="#x1b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RES_28" Index="#x6002" Sub="#x1c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RES_29" Index="#x6002" Sub="#x1d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RES_30" Index="#x6002" Sub="#x1e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RES_31" Index="#x6002" Sub="#x1f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_1_RES_32" Index="#x6002" Sub="#x20">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Slave CRC_1" Index="#x6000" Sub="#x04">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR1" Index="#x6002" Sub="#x21">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR2" Index="#x6002" Sub="#x22">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR3" Index="#x6002" Sub="#x23">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR4" Index="#x6002" Sub="#x24">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR5" Index="#x6002" Sub="#x25">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR6" Index="#x6002" Sub="#x26">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR7" Index="#x6002" Sub="#x27">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR8" Index="#x6002" Sub="#x28">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR9" Index="#x6002" Sub="#x29">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR10" Index="#x6002" Sub="#x2a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR11" Index="#x6002" Sub="#x2b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR12" Index="#x6002" Sub="#x2c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR13" Index="#x6002" Sub="#x2d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR14" Index="#x6002" Sub="#x2e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR15" Index="#x6002" Sub="#x2f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_2_MR16" Index="#x6002" Sub="#x30">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Slave CRC_2" Index="#x6000" Sub="#x05">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_49" Index="#x6002" Sub="#x31">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_50" Index="#x6002" Sub="#x32">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_51" Index="#x6002" Sub="#x33">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_52" Index="#x6002" Sub="#x34">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_53" Index="#x6002" Sub="#x35">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_54" Index="#x6002" Sub="#x36">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_55" Index="#x6002" Sub="#x37">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_56" Index="#x6002" Sub="#x38">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_57" Index="#x6002" Sub="#x39">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_58" Index="#x6002" Sub="#x3a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_59" Index="#x6002" Sub="#x3b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_60" Index="#x6002" Sub="#x3c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_61" Index="#x6002" Sub="#x3d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_62" Index="#x6002" Sub="#x3e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_63" Index="#x6002" Sub="#x3f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Inp D_3_RES_64" Index="#x6002" Sub="#x40">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Slave CRC_3" Index="#x6000" Sub="#x06">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE ConnID" Index="#x6000" Sub="#x02">
+								<Type>UINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="Outputs Bitf" Index="#x160a" InOut="1" Flags="#x0080" SyncMan="2">
+							<Entry Name="FSOE__FSOE Command" Index="#x7000" Sub="#x01">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_1" Index="#x7002" Sub="#x01">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_NHE" Index="#x7002" Sub="#x02">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_BS" Index="#x7002" Sub="#x03">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_QBS" Index="#x7002" Sub="#x04">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_SHS1" Index="#x7002" Sub="#x05">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_SHS2" Index="#x7002" Sub="#x06">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_E2" Index="#x7002" Sub="#x07">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_E7" Index="#x7002" Sub="#x08">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_US2" Index="#x7002" Sub="#x09">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_SBH" Index="#x7002" Sub="#x0a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_4" Index="#x7002" Sub="#x0b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_5" Index="#x7002" Sub="#x0c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_6" Index="#x7002" Sub="#x0d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_7" Index="#x7002" Sub="#x0e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_RES_8" Index="#x7002" Sub="#x0f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_0_SPA" Index="#x7002" Sub="#x10">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Master CRC_0" Index="#x7000" Sub="#x03">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_JR" Index="#x7002" Sub="#x11">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_VRED" Index="#x7002" Sub="#x12">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_1" Index="#x7002" Sub="#x13">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_2" Index="#x7002" Sub="#x14">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_3" Index="#x7002" Sub="#x15">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_4" Index="#x7002" Sub="#x16">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_5" Index="#x7002" Sub="#x17">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_SBH_6" Index="#x7002" Sub="#x18">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_1" Index="#x7002" Sub="#x19">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_2" Index="#x7002" Sub="#x1a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_3" Index="#x7002" Sub="#x1b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_4" Index="#x7002" Sub="#x1c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_5" Index="#x7002" Sub="#x1d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_6" Index="#x7002" Sub="#x1e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_7" Index="#x7002" Sub="#x1f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_1_RES_8" Index="#x7002" Sub="#x20">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Master CRC_1" Index="#x7000" Sub="#x04">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER1" Index="#x7002" Sub="#x21">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER2" Index="#x7002" Sub="#x22">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER3" Index="#x7002" Sub="#x23">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER4" Index="#x7002" Sub="#x24">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER5" Index="#x7002" Sub="#x25">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER6" Index="#x7002" Sub="#x26">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER7" Index="#x7002" Sub="#x27">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER8" Index="#x7002" Sub="#x28">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER9" Index="#x7002" Sub="#x29">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER10" Index="#x7002" Sub="#x2a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER11" Index="#x7002" Sub="#x2b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER12" Index="#x7002" Sub="#x2c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER13" Index="#x7002" Sub="#x2d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER14" Index="#x7002" Sub="#x2e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER15" Index="#x7002" Sub="#x2f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_2_UER16" Index="#x7002" Sub="#x30">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Master CRC_2" Index="#x7000" Sub="#x05">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ1" Index="#x7002" Sub="#x31">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ2" Index="#x7002" Sub="#x32">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ3" Index="#x7002" Sub="#x33">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ4" Index="#x7002" Sub="#x34">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ5" Index="#x7002" Sub="#x35">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ6" Index="#x7002" Sub="#x36">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ7" Index="#x7002" Sub="#x37">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ8" Index="#x7002" Sub="#x38">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ9" Index="#x7002" Sub="#x39">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ10" Index="#x7002" Sub="#x3a">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ11" Index="#x7002" Sub="#x3b">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ12" Index="#x7002" Sub="#x3c">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ13" Index="#x7002" Sub="#x3d">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ14" Index="#x7002" Sub="#x3e">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ15" Index="#x7002" Sub="#x3f">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Out D_3_WZ16" Index="#x7002" Sub="#x40">
+								<Type>BIT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE Master CRC_3" Index="#x7000" Sub="#x06">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="FSOE__FSOE ConnID" Index="#x7000" Sub="#x02">
+								<Type>UINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="Std. In (4 Bytes)" Index="#x1a10" Flags="#x0090" SyncMan="3">
+							<Entry Name="Input DWORD 0" Index="#x6010" Sub="#x01">
+								<Type>UDINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="Std. Out (4 Bytes)" Index="#x1610" InOut="1" Flags="#x0090" SyncMan="2">
+							<Entry Name="Output DWORD 0" Index="#x7010" Sub="#x01">
+								<Type>UDINT</Type>
+							</Entry>
+						</Pdo>
+						<CoeProfile ProfileNo="5001"/>
+						<Slot Name="Standard Sync Inputs">
+							<SlotData>0000000001000400000000000000000000000000000000000000000000000000</SlotData>
+							<ModuleIdent>640</ModuleIdent>
+							<Module Id="#x03090001" Type="Sync Inputs" Class="">
+								<Name>Module 1 (Sync Inputs)</Name>
+								<ImageId>408</ImageId>
+								<ModuleData>c860000080020000000004000000000000000000000000000000000000000000</ModuleData>
+								<PdoIndex>6657</PdoIndex>
+							</Module>
+						</Slot>
+						<Slot Name="Safety Process Data">
+							<SlotData>0000000001000400000000000000000000000000000000000000000000000000</SlotData>
+							<ModuleIdent>260</ModuleIdent>
+							<ModuleIdent>258</ModuleIdent>
+							<Module Id="#x03090002" Type="Safety Data Bitf  (8 Byte)" Class="">
+								<Name>Module 2 (Safety Data Bitf  (8 Byte))</Name>
+								<ImageId>1004</ImageId>
+								<ModuleData>c860000004010000000008000000000000000000000000000000000000000000</ModuleData>
+								<PdoIndex>6666</PdoIndex>
+								<PdoIndex>5642</PdoIndex>
+							</Module>
+						</Slot>
+						<Slot Name="Standard Process Data">
+							<SlotData>0000000001000400000000000000000000000000000000000000000000000000</SlotData>
+							<ModuleIdent>512</ModuleIdent>
+							<ModuleIdent>513</ModuleIdent>
+							<ModuleIdent>514</ModuleIdent>
+							<ModuleIdent>515</ModuleIdent>
+							<ModuleIdent>516</ModuleIdent>
+							<ModuleIdent>517</ModuleIdent>
+							<ModuleIdent>518</ModuleIdent>
+							<ModuleIdent>519</ModuleIdent>
+							<Module Id="#x03090003" Type="Default IO" Class="">
+								<Name>Module 3 (Default IO)</Name>
+								<ImageId>408</ImageId>
+								<ModuleData>c860000000020000000004000000000000000000000000000000000000000000</ModuleData>
+								<PdoIndex>6672</PdoIndex>
+								<PdoIndex>5648</PdoIndex>
+							</Module>
+						</Slot>
+					</EtherCAT>
+				</Box>
+				<EtherCAT/>
+			</Device>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500821000403}" Id="#x02030020"/>
+		<OwnerA Name="TIPC^SRC^SRC Instance">
+			<OwnerB Name="TIID^E-Bus">
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.InfoData.AmsNetId" VarB="InfoData^AmsNetId"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.InfoData.CfgSlaveCount" VarB="InfoData^CfgSlaveCount"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.InfoData.ChangeCount" VarB="InfoData^ChangeCount"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.InfoData.DevId" VarB="InfoData^DevId"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Inputs.DevState" VarB="Inputs^DevState"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Inputs.Frm0InputToggle" VarB="Inputs^Frm0InputToggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Inputs.Frm0State" VarB="Inputs^Frm0State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Inputs.Frm0WcState" VarB="Inputs^Frm0WcState"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Inputs.SlaveCount" VarB="Inputs^SlaveCount"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.ObjectId" VarB="SyncUnits^&lt;default&gt;^PlcTask^InfoData^ObjectId"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.SlaveCount" VarB="SyncUnits^&lt;default&gt;^PlcTask^InfoData^SlaveCount"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.InfoData.State" VarB="SyncUnits^&lt;default&gt;^PlcTask^InfoData^State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.SyncUnits._default.PlcTask.WcState.WcState" VarB="SyncUnits^&lt;default&gt;^PlcTask^WcState^WcState"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Outputs.DevCtrl" VarB="Outputs^DevCtrl"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Outputs.Frm0Ctrl" VarB="Outputs^Frm0Ctrl"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Outputs.Frm0WcCtrl" VarB="Outputs^Frm0WcCtrl"/>
+			</OwnerB>
+			<OwnerB Name="TIID^E-Bus^Term 1 (EK1100)">
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.InfoData.State" VarB="InfoData^State"/>
+			</OwnerB>
+			<OwnerB Name="TIID^E-Bus^Term 1 (EK1100)^Term 2 (EL3024)">
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^Error" VarB="AI Standard Channel 1^Status^Error"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^Limit_1" VarB="AI Standard Channel 1^Status^Limit 1"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^Limit_2" VarB="AI Standard Channel 1^Status^Limit 2"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^Overrange" VarB="AI Standard Channel 1^Status^Overrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^TxPDO_State" VarB="AI Standard Channel 1^Status^TxPDO State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^TxPDO_Toggle" VarB="AI Standard Channel 1^Status^TxPDO Toggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Status^Underrange" VarB="AI Standard Channel 1^Status^Underrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Value" VarB="AI Standard Channel 1^Value"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^Error" VarB="AI Standard Channel 2^Status^Error"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^Limit_1" VarB="AI Standard Channel 2^Status^Limit 1"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^Limit_2" VarB="AI Standard Channel 2^Status^Limit 2"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^Overrange" VarB="AI Standard Channel 2^Status^Overrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^TxPDO_State" VarB="AI Standard Channel 2^Status^TxPDO State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^TxPDO_Toggle" VarB="AI Standard Channel 2^Status^TxPDO Toggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Status^Underrange" VarB="AI Standard Channel 2^Status^Underrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_2.Value" VarB="AI Standard Channel 2^Value"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^Error" VarB="AI Standard Channel 3^Status^Error"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^Limit_1" VarB="AI Standard Channel 3^Status^Limit 1"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^Limit_2" VarB="AI Standard Channel 3^Status^Limit 2"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^Overrange" VarB="AI Standard Channel 3^Status^Overrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^TxPDO_State" VarB="AI Standard Channel 3^Status^TxPDO State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^TxPDO_Toggle" VarB="AI Standard Channel 3^Status^TxPDO Toggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Status^Underrange" VarB="AI Standard Channel 3^Status^Underrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_3.Value" VarB="AI Standard Channel 3^Value"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^Error" VarB="AI Standard Channel 4^Status^Error"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^Limit_1" VarB="AI Standard Channel 4^Status^Limit 1"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^Limit_2" VarB="AI Standard Channel 4^Status^Limit 2"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^Overrange" VarB="AI Standard Channel 4^Status^Overrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^TxPDO_State" VarB="AI Standard Channel 4^Status^TxPDO State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^TxPDO_Toggle" VarB="AI Standard Channel 4^Status^TxPDO Toggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Status^Underrange" VarB="AI Standard Channel 4^Status^Underrange"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_4.Value" VarB="AI Standard Channel 4^Value"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.InfoData.AdsAddr" VarB="InfoData^AdsAddr"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.InfoData.State" VarB="InfoData^State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.WcState.InputToggle" VarB="WcState^InputToggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.WcState.WcState" VarB="WcState^WcState"/>
+			</OwnerB>
+			<OwnerB Name="TIID^E-Bus^Term 1 (EK1100)^Term 3 (EL2634)">
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.InfoData.State" VarB="InfoData^State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.WcState.WcState" VarB="WcState^WcState"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_1.Output" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_2.Output" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_3.Output" VarB="Channel 3^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_4.Output" VarB="Channel 4^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^E-Bus^X001 (KRC4 secondary EL6695-1001)">
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.AdsAddr" VarB="InfoData^AdsAddr"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.AoeNetId" VarB="InfoData^AoeNetId"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.InfoData.State" VarB="InfoData^State"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.External_device_not_connected" VarB="Module 1 (Sync Inputs)^Compact^External device not connected"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_state" VarB="Module 1 (Sync Inputs)^Compact^TxPDO state"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_1_Sync_Inputs.Compact.TxPDO_toggle" VarB="Module 1 (Sync Inputs)^Compact^TxPDO toggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_In_4_Bytes.Input_DWORD_0" VarB="Module 3 (Default IO)^Std. In (4 Bytes)^Input DWORD 0"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.WcState.InputToggle" VarB="WcState^InputToggle"/>
+				<Link VarA="PlcTask Inputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.WcState.WcState" VarB="WcState^WcState"/>
+				<Link VarA="PlcTask Outputs^GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_Out_4_Bytes.Output_DWORD_0" VarB="Module 3 (Default IO)^Std. Out (4 Bytes)^Output DWORD 0"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmProject>

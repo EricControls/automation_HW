@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="StateMachineBase" Id="{54cb8061-a005-4e2b-86b3-0c0ca4515e31}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK StateMachineBase //IMPLEMENTS  iStateMachine
+VAR_INPUT
+	resourceID:INT;
+END_VAR
+VAR_OUTPUT
+	//Current alarm code
+		//Alarms
+	Alarms: ARRAY [0..10] OF BOOL;
+	InfoMsg: STRING;
+END_VAR
+VAR
+	//State Machine
+	prevState : eState;
+	curState : eState;
+	nextState : eState;
+    HMIState : INT;
+	
+	cellState : eCellState;
+    sTmpState : STRING(255);
+    arrStateHistory : ARRAY [ 0..50 ] OF STRING(255);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="abort" Id="{96f0a57a-cfb4-44b2-bd37-4cfe3052afad}">
+      <Declaration><![CDATA[METHOD abort : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="getID" Id="{c4b1c257-d4a3-4f35-853a-350d368bdb8c}">
+      <Declaration><![CDATA[METHOD getID : INT
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[getID:=resourceID;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="getState" Id="{fb7b1f04-e557-4d70-913a-963996243d38}">
+      <Declaration><![CDATA[METHOD getState : eState
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[getState:=curState;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="hold" Id="{fda735ee-5573-49b6-a1dc-e50a89abc1e6}">
+      <Declaration><![CDATA[METHOD hold : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[hold := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ready" Id="{ffeb8452-7bbc-4900-b092-b52199c91232}">
+      <Declaration><![CDATA[METHOD ready : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ready := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="reset" Id="{aa41757f-64fe-4485-a788-8330d90efc9e}">
+      <Declaration><![CDATA[METHOD reset : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[reset := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="resetAlarms" Id="{dee7393a-14d0-406b-8af1-5eb7c794c2f8}">
+      <Declaration><![CDATA[METHOD resetAlarms
+VAR_INPUT
+END_VAR
+VAR
+	i:INT;
+	ToolData: INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR i:=1 TO 20 DO
+	Alarms[i] := FALSE;
+END_FOR
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="resetInfoMsg" Id="{3e9cf03f-1351-481b-a27e-64f1cdf4515e}">
+      <Declaration><![CDATA[METHOD resetInfoMsg
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[InfoMsg := '';]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="restart" Id="{224acb1d-42ce-45a3-ae85-ffe9487eb5d4}">
+      <Declaration><![CDATA[METHOD restart : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[restart := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="start" Id="{04c1c909-c569-4ee2-bd8f-e11cd1b0718e}">
+      <Declaration><![CDATA[METHOD start : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[start := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{88062980-a694-48fc-899f-fcd6b677acfc}">
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_error THEN
+	resetAlarms();
+END_IF
+
+prevState := curState;
+curState := nextState;
+HMIState := CurState;
+
+
+sTmpState := TO_STRING(nextState);
+Queue_FIFO(
+    inputSize   := SIZEOF(sTmpState),
+    inputAdr    := ADR(sTmpState),
+    arrSize := SIZEOF(arrStateHistory),
+    arrAdr  := ADR(arrStateHistory)
+);
+]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="stop" Id="{a67fa95d-604d-4e25-b7a9-a04ab145fdff}">
+      <Declaration><![CDATA[METHOD stop : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[stop := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="trackStateChange" Id="{28926f83-8ac5-4c34-b170-ff822c7db757}">
+      <Declaration><![CDATA[METHOD trackStateChange
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="StateMachineBase">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.abort">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.getID">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.getState">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.hold">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.ready">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.reset">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.resetAlarms">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.resetInfoMsg">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.restart">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.start">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.StateTransition">
+      <LineId Id="2" Count="7" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="14" Count="6" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.stop">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="StateMachineBase.trackStateChange">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

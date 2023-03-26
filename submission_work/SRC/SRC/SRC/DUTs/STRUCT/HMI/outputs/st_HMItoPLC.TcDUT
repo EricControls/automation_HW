@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_HMItoPLC" Id="{a28a04ca-4f7e-4dd2-a45c-4b62749115d4}">
+    <Declaration><![CDATA[TYPE st_HMItoPLC :
+STRUCT
+    cell : st_HMItoPLC_Cell;
+    hmi : st_HMItoPLC_HMI;
+    variantControl : st_HMItoPLC_VariantControl;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

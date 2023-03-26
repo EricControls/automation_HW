@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Itf Name="I_PressureSensor" Id="{3bf8359e-243c-41e8-8234-424e8868bde3}">
+    <Declaration><![CDATA[INTERFACE I_PressureSensor
+]]></Declaration>
+    <Method Name="getSignal" Id="{54d20a2a-1767-4441-a415-8d81638d9af3}">
+      <Declaration><![CDATA[METHOD getSignal : LREAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="setSignal" Id="{e8d4b819-aa5c-4aa9-b64e-84daa4f8fee5}">
+      <Declaration><![CDATA[METHOD setSignal : BOOL
+VAR_INPUT
+    input : LREAL;
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

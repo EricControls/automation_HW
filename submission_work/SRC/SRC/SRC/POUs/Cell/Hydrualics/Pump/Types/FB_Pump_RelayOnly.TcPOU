@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Pump_RelayOnly" Id="{bbf9f5cb-a340-456f-a981-0c6c70e04f66}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Pump_RelayOnly EXTENDS FB_Pump
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+    hydrualicPump_output : ST_Pump_Output;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="StateMachine" Id="{0f7e327f-efa4-4329-aa48-36d3216fdd27}">
+      <Folder Name="States" Id="{9a674d99-9e31-4336-aa1e-38ca6bc25ba1}" />
+    </Folder>
+    <Action Name="ExecuteState" Id="{3291a433-6560-4362-a447-50cf99f5952a}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[
+
+CASE curState OF
+	eState_Idle: ExecuteState_Idle();
+	eState_Startup: ExecuteState_Startup();
+	eState_Running: ExecuteState_Running();
+	eState_Complete: ExecuteState_Complete();
+    eState_Stopping: ExecuteState_Stopping();
+    eState_Stopped: ExecuteState_Stopped();
+	eState_Error: ExecuteState_Error();
+	eState_Independent: ExecuteState_Independent();
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Complete" Id="{785f57fe-52f1-492d-8945-58387f7b64cf}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Error" Id="{0457ed0a-9da3-4f73-86c0-04334a7bd651}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// Set Outputs
+hydrualicPump_output.On := FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Idle" Id="{a81535c6-c4b3-48e7-83f0-04757990912d}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// Set Outputs
+hydrualicPump_output.On := FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Independent" Id="{e220d4b7-f88d-48c6-997c-7683e2fb9591}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// Set Outputs
+hydrualicPump_output.On := FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Running" Id="{b3869bed-62b3-4bc9-83a5-2275f062f2ef}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// Set Outputs
+hydrualicPump_output.On := TRUE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Startup" Id="{44099863-9dbc-419d-9316-745ba58d4270}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[
+// reset timers
+
+// set output to true
+nextState := eState_Running;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Stopped" Id="{c80c5bfd-fa3c-4da0-854d-a31eea981b5d}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[nextState := eState_Idle;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Stopping" Id="{903e1b23-df82-4512-a62b-b41f2a44bf2c}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[nextState := eState_Stopped;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="getSignal" Id="{34b5af09-620e-4d91-ae26-08fbbada1ae4}">
+      <Declaration><![CDATA[METHOD getSignal : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[getSignal := hydrualicPump_output.On;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="reset" Id="{ce3c5d84-a714-42f4-acdc-bca73ac11b2e}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD reset : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[resetAlarms();
+
+IF curState = eState_Complete THEN
+	nextState := eState_Idle;
+	reset := TRUE;
+ELSIF curState = eState_Error THEN
+    nextState := eState_Idle;
+ELSE
+	reset := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="start" Id="{93f93f60-35d6-4f62-91d6-44c0d22b6478}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD start: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Idle THEN
+	nextState := eState_Startup;
+	start := TRUE;
+ELSE
+	start := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{75c24893-6495-4802-9ed3-914313e5eff2}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[SUPER^.StateTransition();]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_Pump_RelayOnly">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState">
+      <LineId Id="23" Count="6" />
+      <LineId Id="32" Count="1" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Complete">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Error">
+      <LineId Id="5" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Idle">
+      <LineId Id="1" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Independent">
+      <LineId Id="2" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Running">
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Startup">
+      <LineId Id="50" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="49" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Stopped">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.ExecuteState_Stopping">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.getSignal">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.reset">
+      <LineId Id="3" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.start">
+      <LineId Id="4" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Pump_RelayOnly.StateTransition">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

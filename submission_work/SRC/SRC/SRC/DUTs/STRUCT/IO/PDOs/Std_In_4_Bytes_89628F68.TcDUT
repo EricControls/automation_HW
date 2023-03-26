@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Std_In_4_Bytes_89628F68" Id="{a73c3c38-b004-43c7-99a2-819e72e29789}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "Input_DWORD_0AT %I*UDINT4"}
+{attribute addProperty CRC "2304937832"}
+{attribute addProperty Size "4"}
+TYPE Std_In_4_Bytes_89628F68 EXTENDS InputBase_8311D824 :
+STRUCT
+	{attribute addProperty Name "Input_DWORD_0"}
+	Input_DWORD_0 AT %I* : UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

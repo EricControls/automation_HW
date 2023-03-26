@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_PressureTransducer_Input" Id="{1936f3f3-5f6b-428a-822b-5c57bbef157b}">
+    <Declaration><![CDATA[TYPE st_PressureTransducer_Input :
+STRUCT
+	value : LREAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

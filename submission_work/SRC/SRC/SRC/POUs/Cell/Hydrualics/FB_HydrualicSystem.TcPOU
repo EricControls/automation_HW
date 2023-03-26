@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_HydrualicSystem" Id="{480141df-1e34-4c40-90c2-d984119b85af}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HydrualicSystem EXTENDS StateMachineBase
+VAR_INPUT
+    bIsSimulator : BOOL;
+
+	// Hydrualic pump
+	bHasPump : BOOL;
+	sTypeOfPump : STRING;
+
+	// Pressure sensor
+	bHasPressureSensor : BOOL;
+	sTypeOfPressureSensor : STRING;
+
+    PressureSensor_input : st_PressureTransducer_Input;
+END_VAR
+VAR_OUTPUT
+    bBusy : BOOL;
+    bError : BOOL;
+    bDone : BOOL;
+    
+    hydrualicPump_output : ST_Pump_Output;
+
+    PLCtoHMI : st_PLCtoHMI_Hydrualics;
+END_VAR
+VAR
+	// Function block instances for Hydrualic Pump
+	fbPumpRealy : FB_Pump_RelayOnly;
+	fbPumpHPU : FB_Pump_HPU;
+    fbPumpSim : FB_Pump_Simulator;
+    // Interface to pump
+	iHydrualicPump : I_HydrualicPump;
+
+    // Function block instances for Pressure Sensor
+	fbPressureSensorSim : FB_PressureTransceiver_Sim;
+	fbGenericPressureSensor : FB_GenericBrand_Transceiver;
+    // Interface to Pressure Sensor
+	iPressureSensor : I_PressureSensor;
+
+    PressureValueMem : LREAL;
+
+    primePumpTimeoutTON : TON := (PT := T#500ms);
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[M_VariantControl();
+HandleInputs();
+
+MonitorErrors();
+
+ExecuteState();
+IF NOT (nextState = curState) THEN
+	StateTransition();
+END_IF
+
+fbPumpRealy();
+fbPumpHPU();
+fbPumpSim();
+fbPressureSensorSim(simCellState := cellState);
+fbGenericPressureSensor();
+
+HandleOutputs();]]></ST>
+    </Implementation>
+    <Folder Name="StateMachine" Id="{551fd8e7-5396-43af-90e4-be09813ca759}">
+      <Folder Name="States" Id="{71340a8b-6047-4c14-8703-c18cf8956771}" />
+    </Folder>
+    <Action Name="ExecuteState" Id="{60ea2387-7ca3-476e-9945-c00f184a2b15}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[
+
+CASE curState OF
+	eState_Idle: ExecuteState_Idle();
+	eState_Startup: ExecuteState_Startup();
+	eState_Running: ExecuteState_Running();
+	eState_Complete: ExecuteState_Complete();
+	eState_Error: ExecuteState_Error();
+	eState_Independent: ExecuteState_Independent();
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Complete" Id="{775318d5-b27f-43fe-9655-bcf8367d2057}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Error" Id="{9892b3ef-3084-45a8-bc26-fc6ac99458f2}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[
+// stop pump in case of error
+IF NOT (iHydrualicPump.getState() = eState_Idle) AND NOT (iHydrualicPump.getState() = eState_Error) THEN
+    iHydrualicPump.stop();
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Idle" Id="{dc8f3035-e716-4cb8-b759-a71852a0ee7e}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Independent" Id="{dd7ece7a-48c8-4285-a849-c3868fe2a7df}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Running" Id="{02225357-1a6b-41f2-8157-2082449ed525}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// I would setup every type of control loop here in a case statemant
+// here I'm only using one (bang bang) as what is there to control with just ON/OFF
+
+IF iPressureSensor.getSignal() > 10 THEN
+    nextState := eState_Error;
+    // throw overpressure error
+    RETURN;
+END_IF
+
+// bang bang control
+IF iPressureSensor.getSignal() > 9.9 THEN
+    IF NOT (iHydrualicPump.getState() = eState_Idle) THEN
+        // stop once pressure is above set point
+        iHydrualicPump.stop();
+    END_IF
+ELSIF iPressureSensor.getSignal() <= 8.2 THEN
+    IF NOT (iHydrualicPump.getState() = eState_Running) THEN
+        // start once pressure below minimun
+        iHydrualicPump.start();
+    END_IF
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Startup" Id="{d0702009-a7fe-4669-9e13-2151537efaff}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[
+IF (iHydrualicPump.getState() = eState_Idle) AND NOT (iHydrualicPump.getState() = eState_Error) THEN
+    iHydrualicPump.start();
+ELSE
+    // failed to start error
+END_IF
+
+IF iPressureSensor.getSignal() > 8 THEN
+    nextState := eState_Running;
+END_IF
+
+primePumpTimeoutTON(IN := (PressureValueMem > iPressureSensor.getSignal()));
+IF primePumpTimeoutTON.Q THEN
+    // failed to pressureize system. Checks for leaks! Or faulty motor.
+    nextState := eState_Error;
+END_IF
+
+IF iPressureSensor.getSignal() > PressureValueMem THEN
+    PressureValueMem := iPressureSensor.getSignal();
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="HandleInputs" Id="{c2b4d46f-73ad-4ab8-af7d-00bc44906398}">
+      <Declaration><![CDATA[METHOD HandleInputs : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+// Pass pressure value to iPressureSensor
+IF bIsSimulator THEN
+    // pass pump state back to pressure sensor to generate sim signal
+    fbPressureSensorSim.bPumpIsON := iHydrualicPump.getState() = eState_Running;
+ELSE
+    iPressureSensor.setSignal(PressureSensor_input.value);    
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="HandleOutputs" Id="{e3e17ff5-98c8-42eb-ad85-eeeacfd37523}">
+      <Declaration><![CDATA[METHOD HandleOutputs : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Set Outputs
+hydrualicPump_output.On := iHydrualicPump.getSignal();
+
+// populate HMI struct
+PLCtoHMI.state := curState;
+PLCtoHMI.psiSensor.value := iPressureSensor.getSignal();
+PLCtoHMI.pump.state := iHydrualicPump.getState();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_VariantControl" Id="{0c3baa99-c2be-4e7a-96b3-9ba353a2863b}">
+      <Declaration><![CDATA[METHOD PRIVATE M_VariantControl : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Handle hydrualic pump options
+IF bIsSimulator THEN
+    iHydrualicPump := fbPumpSim;
+    iPressureSensor := fbPressureSensorSim;
+ELSE
+    IF sTypeOfPump='relay' THEN
+        iHydrualicPump := fbPumpRealy;
+    ELSIF sTypeOfPump='hpu' THEN
+        iHydrualicPump := fbPumpHPU;
+    ELSE
+        iHydrualicPump := fbPumpRealy;
+    END_IF
+    
+    iPressureSensor := fbGenericPressureSensor;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="MonitorErrors" Id="{7052d4e8-391a-4e78-8109-17d9eadd25cb}">
+      <Declaration><![CDATA[METHOD MonitorErrors : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// error if hydrualic pump fails
+IF iHydrualicPump.getState() = eState_Error THEN
+    nextState := eState_Error;
+    // throw pump error
+END_IF
+
+IF curState = eState_Running THEN
+    IF iPressureSensor.getSignal() < 8 THEN
+        iHydrualicPump.stop();
+        nextState := eState_Error;
+        // throw pressure drop error
+    END_IF
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="reset" Id="{b88535b0-eef6-46db-8072-184167fea706}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD reset : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[resetAlarms();
+
+iHydrualicPump.reset();
+
+nextState := eState_Idle;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="start" Id="{e488af84-cccf-49de-ae23-71c832f7a38a}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD start: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Idle THEN
+	nextState := eState_Startup;
+	start := TRUE;
+ELSE
+	start := FALSE;
+END_IF
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{6d75eee6-daa0-4c71-9782-29847b401a73}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[//reset timers
+
+
+IF nextState = eState_Startup THEN
+	primePumpTimeoutTON(IN := FALSE);
+    PressureValueMem := iPressureSensor.getSignal();
+END_IF
+
+
+SUPER^.StateTransition();]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_HydrualicSystem">
+      <LineId Id="254" Count="15" />
+      <LineId Id="143" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState">
+      <LineId Id="23" Count="8" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Complete">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Error">
+      <LineId Id="3" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="1" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Idle">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Independent">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Running">
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="3" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.ExecuteState_Startup">
+      <LineId Id="50" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="55" Count="2" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="72" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.HandleInputs">
+      <LineId Id="19" Count="0" />
+      <LineId Id="7" Count="3" />
+      <LineId Id="14" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.HandleOutputs">
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="19" Count="2" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.M_VariantControl">
+      <LineId Id="5" Count="0" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.MonitorErrors">
+      <LineId Id="9" Count="0" />
+      <LineId Id="6" Count="2" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="16" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.reset">
+      <LineId Id="3" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.start">
+      <LineId Id="4" Count="4" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrualicSystem.StateTransition">
+      <LineId Id="7" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Kuka_KRC4" Id="{f8d86418-cb86-4d45-8e78-555e2b732be9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Kuka_KRC4 EXTENDS FB_Robot
+VAR_INPUT
+    HardwareInputs : st_Robot_Input;
+END_VAR
+VAR_OUTPUT
+    HardwareOutputs : st_Robot_Output;
+END_VAR
+VAR    
+    StartupTimeoutTON : TON := (PT:=T#7S);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+ExecuteState();
+IF NOT (nextState = curState) THEN
+	StateTransition();
+END_IF;]]></ST>
+    </Implementation>
+    <Folder Name="StateMachine" Id="{7c66d7e1-2488-4916-8e34-5415c7b728b8}">
+      <Folder Name="States" Id="{7937b9fc-d23c-4ba8-8e4c-d71968fa351b}" />
+    </Folder>
+    <Action Name="ExecuteState" Id="{b952fd7b-3836-4c2a-9f58-512de66cf7ba}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[// Watch for safety inputs from robot, e-stops, etc. and immediately goto state error
+// IF RobotSafetyInput THEN
+//  curState := eState_Error;
+// END_IF
+
+
+CASE curState OF
+	eState_Idle: ExecuteState_Idle();
+	eState_Startup: ExecuteState_Startup();
+	eState_Running: ExecuteState_Running();
+	eState_Complete: ExecuteState_Complete();
+	eState_Error: ExecuteState_Error();
+	eState_Independent: ExecuteState_Independent();
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Complete" Id="{2741ec13-6e13-409c-b94d-f6839e371abb}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals
+
+nextState := eState_Idle;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Error" Id="{980fe57f-81de-4517-9af8-7133844f06e0}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals
+HardwareOutputs.fault := TRUE;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Held" Id="{5c628b4c-c5ce-4679-a0f8-ae78f654952a}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Set outputs]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Holding" Id="{e231daa3-86b0-4899-94e0-9701642c16f3}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Set outputs
+
+//Wait for held signal, then go to Held state
+nextState := eState_Held;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Idle" Id="{a2798b24-d76f-4ec0-95b5-e6b9e123a8a4}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// monitor IO while idle
+// set IO while in idle state
+
+//Output signals
+HardwareOutputs.fault := FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Independent" Id="{b65891de-2ea1-4805-88bc-30b0afbbfb45}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Running" Id="{a5ba05e4-9400-4de7-9da9-e7a4b1af2b4f}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Startup" Id="{e404ca6a-06b8-4647-96a1-0eba31611d99}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[nextState := eState_Running;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="hold" Id="{891f096c-804c-434c-a712-7f0e03019d21}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD hold : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Running THEN
+	nextState := eState_Holding;
+	hold := TRUE;
+ELSE
+	hold := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="reset" Id="{f19f2312-87fc-4eb2-b020-267bf4ec89b1}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD reset : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[resetAlarms();
+
+IF curState = eState_Complete THEN
+	nextState := eState_Idle;
+	reset := TRUE;
+ELSIF curState = eState_Error THEN
+	nextState := eState_Idle;
+	reset := TRUE;
+ELSE
+	reset := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="start" Id="{d39caee6-a1bc-408f-b1bc-380d00b162d4}" FolderPath="StateMachine\">
+      <Declaration><![CDATA[METHOD start: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Idle THEN
+	nextState := eState_Startup;
+	start := TRUE;
+ELSE
+	start := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{f5542f9f-b406-4151-94ab-c64519401327}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[//reset timers watchdog timers
+
+SUPER^.StateTransition();]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_Kuka_KRC4">
+      <LineId Id="61" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="18" Count="3" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState">
+      <LineId Id="23" Count="0" />
+      <LineId Id="33" Count="2" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="24" Count="7" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Complete">
+      <LineId Id="7" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Error">
+      <LineId Id="7" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Held">
+      <LineId Id="22" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Holding">
+      <LineId Id="2" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Idle">
+      <LineId Id="1" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="75" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Independent">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Running">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.ExecuteState_Startup">
+      <LineId Id="130" Count="0" />
+      <LineId Id="128" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.hold">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.reset">
+      <LineId Id="3" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.start">
+      <LineId Id="4" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Kuka_KRC4.StateTransition">
+      <LineId Id="7" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

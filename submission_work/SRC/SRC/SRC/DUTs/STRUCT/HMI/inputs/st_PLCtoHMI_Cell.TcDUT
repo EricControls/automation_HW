@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_PLCtoHMI_Cell" Id="{32c632fc-ee08-4454-a4d2-f61c66c87cdd}">
+    <Declaration><![CDATA[TYPE st_PLCtoHMI_Cell :
+STRUCT
+    state : eCellState;
+    bPower : BOOL; // power hydrualics maybe?
+    bGoToManual: BOOL;
+	bGoToAuto: BOOL;
+	bReset : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Robot_Simulator" Id="{8d99ecd9-d781-4c5e-925c-5107575361f0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Robot_Simulator EXTENDS FB_Robot
+VAR_INPUT
+    simCellState : eCellState;
+    simHydroState : eState;
+    HardwareInputs : st_Robot_Input;
+END_VAR
+VAR_OUTPUT
+    HardwareOutputs : st_Robot_Output;
+END_VAR
+VAR
+    simRunningTON : TON := (PT:=T#10S);
+
+    StartupTimeoutTON : TON := (PT:=T#7S);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+ExecuteState();
+IF NOT (nextState = curState) THEN
+	StateTransition();
+END_IF;]]></ST>
+    </Implementation>
+    <Folder Name="StateMachine" Id="{9939dbb8-f0ba-48bc-b044-6d4087b7c50f}">
+      <Folder Name="States" Id="{6f0dfb24-3406-4f63-a103-36abc59f6e63}" />
+    </Folder>
+    <Method Name="abort" Id="{3edcbad9-26cb-44b3-93f6-d0811cc96895}">
+      <Declaration><![CDATA[METHOD abort: BOOL;
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Running THEN
+	nextState := eState_Error;
+	abort := TRUE;
+ELSE
+	abort := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="ExecuteState" Id="{704a6056-e26b-4160-9721-4d4ed178c596}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[// Watch for safety inputs and immediately goto state error
+// IF SomeError THEN
+//  curState := eState_Error;
+// END_IF
+
+CASE curState OF
+	eState_Idle: ExecuteState_Idle();
+	eState_Startup: ExecuteState_Startup();
+	eState_Running: ExecuteState_Running();
+    eState_Holding: ExecuteState_Holding();
+    eState_Held: ExecuteState_Held();
+	eState_Complete: ExecuteState_Complete();
+	eState_Error: ExecuteState_Error();
+	eState_Independent: ExecuteState_Independent();
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Complete" Id="{a601be95-9c6d-4835-8e4d-8ffe581055d2}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals
+
+nextState := eState_Idle;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Error" Id="{8c30d1c0-57f9-4657-a790-5b1d22a55861}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals
+HardwareOutputs.fault := TRUE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Held" Id="{1c456a31-db40-4a9d-acaa-cbaaba6365f2}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Set outputs
+
+IF simCellState = eCellState_Error THEN
+    // in sim just put it back in idle
+    nextState := eState_Idle;
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Holding" Id="{b33fd6e1-3976-4583-890e-dc2c14c3e888}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Set outputs
+
+//Wait for held signal, then go to Held state
+nextState := eState_Held;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Idle" Id="{66878f2f-6da1-4c50-a6cb-89c19e86c72a}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[// monitor IO while idle
+// set IO while in idle state
+
+//Output signals
+HardwareOutputs.fault := FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Independent" Id="{c72d0a9d-15cf-43e7-81bb-5e3a0a9256e9}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[//Output signals]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Running" Id="{8e637ec5-2ae6-46a6-b16d-91a33e98fe27}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[
+
+simRunningTON(IN:=TRUE);
+IF simRunningTON.Q THEN
+    //simRaiseError_counter := simRaiseError_counter+1;
+    nextState := eState_Complete;
+END_IF
+
+// error robot after nth cycle
+//IF simRaiseError_counter = 5 THEN
+//    nextState := eState_Error;
+//    simRaiseError_counter := 0;
+//END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Startup" Id="{f5debea4-afaf-49db-81d0-99c1089f3365}" FolderPath="StateMachine\States\">
+      <Implementation>
+        <ST><![CDATA[
+nextState := eState_Running;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="hold" Id="{5ed80ed1-ed16-4b55-abeb-9ec40f1c2cde}">
+      <Declaration><![CDATA[METHOD hold : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Running THEN
+	nextState := eState_Holding;
+	hold := TRUE;
+ELSE
+	hold := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="reset" Id="{c19f5bf7-8b73-4d49-8310-2acdb4a018f5}">
+      <Declaration><![CDATA[METHOD reset : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[resetAlarms();
+
+IF curState = eState_Complete THEN
+	nextState := eState_Idle;
+	reset := TRUE;
+ELSIF curState = eState_Error THEN // AND InputSignals.AutoMode AND InputSignals.Homed AND InputSignals.LoadUnloadReady AND NOT InputSignals.InCycle THEN
+	nextState := eState_Idle;
+	reset := TRUE;
+ELSE
+	reset := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="start" Id="{4659242a-ad27-4d73-bc37-304f27bf5927}">
+      <Declaration><![CDATA[METHOD start: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF curState = eState_Idle THEN
+	nextState := eState_Startup;
+	start := TRUE;
+ELSE
+	start := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{10ee8015-cceb-4d9b-9037-fc7dafd34547}" FolderPath="StateMachine\">
+      <Implementation>
+        <ST><![CDATA[//reset timers watchdog timers
+
+simRunningTON(in := FALSE);
+StartupTimeoutTON(IN := FALSE);
+
+IF nextState = eState_Startup THEN
+	StartupTimeoutTON(IN := FALSE);
+END_IF
+
+IF nextState = eState_Startup THEN
+	simRunningTON(IN := FALSE);
+END_IF
+
+SUPER^.StateTransition();]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_Robot_Simulator">
+      <LineId Id="38" Count="1" />
+      <LineId Id="24" Count="2" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.abort">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState">
+      <LineId Id="23" Count="0" />
+      <LineId Id="33" Count="2" />
+      <LineId Id="24" Count="4" />
+      <LineId Id="36" Count="1" />
+      <LineId Id="29" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Complete">
+      <LineId Id="7" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Error">
+      <LineId Id="7" Count="0" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Held">
+      <LineId Id="22" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="40" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Holding">
+      <LineId Id="2" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Idle">
+      <LineId Id="1" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="85" Count="1" />
+      <LineId Id="84" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Independent">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Running">
+      <LineId Id="45" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="48" Count="5" />
+      <LineId Id="28" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.ExecuteState_Startup">
+      <LineId Id="41" Count="0" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="128" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.hold">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.reset">
+      <LineId Id="3" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.start">
+      <LineId Id="4" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Robot_Simulator.StateTransition">
+      <LineId Id="7" Count="0" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="23" Count="2" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

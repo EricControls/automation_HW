@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="ST_Configuration" Id="{a2f1306c-c048-43e5-878b-04ba8b44f9a4}">
+    <Declaration><![CDATA[TYPE ST_Configuration :
+STRUCT
+	sVersionHW : STRING;
+	sVersionSW : STRING;
+
+	// Which variant is active
+	bIsV1_0_0 		: BOOL;
+	bIsSimulator 	: BOOL;
+
+	// Hydrualic pump definition
+	bHasPump : BOOL;
+	sPumpType : STRING;
+	
+	// Pressure sensor definition
+	bHasPressureSensor : BOOL;
+	sPressureSensorType : STRING;
+    
+    // Robot definition
+    bHasRobot : BOOL;
+    sRobotType : STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

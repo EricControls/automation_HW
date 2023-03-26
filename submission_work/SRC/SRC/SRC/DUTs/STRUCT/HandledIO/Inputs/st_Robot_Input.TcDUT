@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_Robot_Input" Id="{ce91bbf5-201a-40e8-9f5c-1b913e0b33ac}">
+    <Declaration><![CDATA[TYPE st_Robot_Input :
+STRUCT
+    fault : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

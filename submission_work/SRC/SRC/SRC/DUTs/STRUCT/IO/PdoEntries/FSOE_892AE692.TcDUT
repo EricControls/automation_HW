@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="FSOE_892AE692" Id="{e089f0c1-bb6b-40b5-962a-128a05de55ea}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "FSOE_CommandUSINT1FSOE_Inp_D_0_NHLBOOL1FSOE_Inp_D_0_AFBOOL1FSOE_Inp_D_0_FFBOOL1FSOE_Inp_D_0_ZSBOOL1FSOE_Inp_D_0_PEBOOL1FSOE_Inp_D_0_EXTBOOL1FSOE_Inp_D_0_T1BOOL1FSOE_Inp_D_0_T2BOOL1FSOE_Inp_D_0_NHEBOOL1FSOE_Inp_D_0_BSQBOOL1FSOE_Inp_D_0_SHS1BOOL1FSOE_Inp_D_0_SHS2BOOL1FSOE_Inp_D_0_RES_13BOOL1FSOE_Inp_D_0_RES_14BOOL1FSOE_Inp_D_0_PSABOOL1FSOE_Inp_D_0_SPBOOL1FSOE_Slave_CRC_0UINT2FSOE_Inp_D_1_SOBOOL1FSOE_Inp_D_1_RRBOOL1FSOE_Inp_D_1_JFBOOL1FSOE_Inp_D_1_VREDBOOL1FSOE_Inp_D_1_SBH_1BOOL1FSOE_Inp_D_1_SBH_2BOOL1FSOE_Inp_D_1_SBH_3BOOL1FSOE_Inp_D_1_SBH_4BOOL1FSOE_Inp_D_1_SBH_5BOOL1FSOE_Inp_D_1_SBH_6BOOL1FSOE_Inp_D_1_SOSBOOL1FSOE_Inp_D_1_RES_28BOOL1FSOE_Inp_D_1_RES_29BOOL1FSOE_Inp_D_1_RES_30BOOL1FSOE_Inp_D_1_RES_31BOOL1FSOE_Inp_D_1_RES_32BOOL1FSOE_Slave_CRC_1UINT2FSOE_Inp_D_2_MR1BOOL1FSOE_Inp_D_2_MR2BOOL1FSOE_Inp_D_2_MR3BOOL1FSOE_Inp_D_2_MR4BOOL1FSOE_Inp_D_2_MR5BOOL1FSOE_Inp_D_2_MR6BOOL1FSOE_Inp_D_2_MR7BOOL1FSOE_Inp_D_2_MR8BOOL1FSOE_Inp_D_2_MR9BOOL1FSOE_Inp_D_2_MR10BOOL1FSOE_Inp_D_2_MR11BOOL1FSOE_Inp_D_2_MR12BOOL1FSOE_Inp_D_2_MR13BOOL1FSOE_Inp_D_2_MR14BOOL1FSOE_Inp_D_2_MR15BOOL1FSOE_Inp_D_2_MR16BOOL1FSOE_Slave_CRC_2UINT2FSOE_Inp_D_3_RES_49BOOL1FSOE_Inp_D_3_RES_50BOOL1FSOE_Inp_D_3_RES_51BOOL1FSOE_Inp_D_3_RES_52BOOL1FSOE_Inp_D_3_RES_53BOOL1FSOE_Inp_D_3_RES_54BOOL1FSOE_Inp_D_3_RES_55BOOL1FSOE_Inp_D_3_RES_56BOOL1FSOE_Inp_D_3_RES_57BOOL1FSOE_Inp_D_3_RES_58BOOL1FSOE_Inp_D_3_RES_59BOOL1FSOE_Inp_D_3_RES_60BOOL1FSOE_Inp_D_3_RES_61BOOL1FSOE_Inp_D_3_RES_62BOOL1FSOE_Inp_D_3_RES_63BOOL1FSOE_Inp_D_3_RES_64BOOL1FSOE_Slave_CRC_3UINT2FSOE_ConnIDUINT2"}
+{attribute addProperty CRC "2301290130"}
+{attribute addProperty Size "75"}
+TYPE FSOE_892AE692 :
+STRUCT
+	{attribute addProperty Name "FSOE_Command"}
+	FSOE_Command : USINT;
+	{attribute addProperty Name "FSOE_Inp_D_0_NHL"}
+	FSOE_Inp_D_0_NHL : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_AF"}
+	FSOE_Inp_D_0_AF : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_FF"}
+	FSOE_Inp_D_0_FF : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_ZS"}
+	FSOE_Inp_D_0_ZS : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_PE"}
+	FSOE_Inp_D_0_PE : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_EXT"}
+	FSOE_Inp_D_0_EXT : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_T1"}
+	FSOE_Inp_D_0_T1 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_T2"}
+	FSOE_Inp_D_0_T2 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_NHE"}
+	FSOE_Inp_D_0_NHE : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_BSQ"}
+	FSOE_Inp_D_0_BSQ : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_SHS1"}
+	FSOE_Inp_D_0_SHS1 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_SHS2"}
+	FSOE_Inp_D_0_SHS2 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_RES_13"}
+	FSOE_Inp_D_0_RES_13 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_RES_14"}
+	FSOE_Inp_D_0_RES_14 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_PSA"}
+	FSOE_Inp_D_0_PSA : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_0_SP"}
+	FSOE_Inp_D_0_SP : BOOL;
+	{attribute addProperty Name "FSOE_Slave_CRC_0"}
+	FSOE_Slave_CRC_0 : UINT;
+	{attribute addProperty Name "FSOE_Inp_D_1_SO"}
+	FSOE_Inp_D_1_SO : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RR"}
+	FSOE_Inp_D_1_RR : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_JF"}
+	FSOE_Inp_D_1_JF : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_VRED"}
+	FSOE_Inp_D_1_VRED : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_1"}
+	FSOE_Inp_D_1_SBH_1 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_2"}
+	FSOE_Inp_D_1_SBH_2 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_3"}
+	FSOE_Inp_D_1_SBH_3 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_4"}
+	FSOE_Inp_D_1_SBH_4 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_5"}
+	FSOE_Inp_D_1_SBH_5 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SBH_6"}
+	FSOE_Inp_D_1_SBH_6 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_SOS"}
+	FSOE_Inp_D_1_SOS : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RES_28"}
+	FSOE_Inp_D_1_RES_28 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RES_29"}
+	FSOE_Inp_D_1_RES_29 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RES_30"}
+	FSOE_Inp_D_1_RES_30 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RES_31"}
+	FSOE_Inp_D_1_RES_31 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_1_RES_32"}
+	FSOE_Inp_D_1_RES_32 : BOOL;
+	{attribute addProperty Name "FSOE_Slave_CRC_1"}
+	FSOE_Slave_CRC_1 : UINT;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR1"}
+	FSOE_Inp_D_2_MR1 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR2"}
+	FSOE_Inp_D_2_MR2 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR3"}
+	FSOE_Inp_D_2_MR3 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR4"}
+	FSOE_Inp_D_2_MR4 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR5"}
+	FSOE_Inp_D_2_MR5 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR6"}
+	FSOE_Inp_D_2_MR6 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR7"}
+	FSOE_Inp_D_2_MR7 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR8"}
+	FSOE_Inp_D_2_MR8 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR9"}
+	FSOE_Inp_D_2_MR9 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR10"}
+	FSOE_Inp_D_2_MR10 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR11"}
+	FSOE_Inp_D_2_MR11 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR12"}
+	FSOE_Inp_D_2_MR12 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR13"}
+	FSOE_Inp_D_2_MR13 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR14"}
+	FSOE_Inp_D_2_MR14 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR15"}
+	FSOE_Inp_D_2_MR15 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_2_MR16"}
+	FSOE_Inp_D_2_MR16 : BOOL;
+	{attribute addProperty Name "FSOE_Slave_CRC_2"}
+	FSOE_Slave_CRC_2 : UINT;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_49"}
+	FSOE_Inp_D_3_RES_49 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_50"}
+	FSOE_Inp_D_3_RES_50 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_51"}
+	FSOE_Inp_D_3_RES_51 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_52"}
+	FSOE_Inp_D_3_RES_52 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_53"}
+	FSOE_Inp_D_3_RES_53 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_54"}
+	FSOE_Inp_D_3_RES_54 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_55"}
+	FSOE_Inp_D_3_RES_55 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_56"}
+	FSOE_Inp_D_3_RES_56 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_57"}
+	FSOE_Inp_D_3_RES_57 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_58"}
+	FSOE_Inp_D_3_RES_58 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_59"}
+	FSOE_Inp_D_3_RES_59 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_60"}
+	FSOE_Inp_D_3_RES_60 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_61"}
+	FSOE_Inp_D_3_RES_61 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_62"}
+	FSOE_Inp_D_3_RES_62 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_63"}
+	FSOE_Inp_D_3_RES_63 : BOOL;
+	{attribute addProperty Name "FSOE_Inp_D_3_RES_64"}
+	FSOE_Inp_D_3_RES_64 : BOOL;
+	{attribute addProperty Name "FSOE_Slave_CRC_3"}
+	FSOE_Slave_CRC_3 : UINT;
+	{attribute addProperty Name "FSOE_ConnID"}
+	FSOE_ConnID : UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Inputs_Bitf_43DA21F5" Id="{88847ce7-0340-49d8-b66c-c90892167bdd}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "FSOEAT %I*FSOE_892AE69275"}
+{attribute addProperty CRC "1138369013"}
+{attribute addProperty Size "75"}
+TYPE Inputs_Bitf_43DA21F5 EXTENDS InputBase_8311D824 :
+STRUCT
+	{attribute addProperty Name "FSOE"}
+	FSOE AT %I* : FSOE_892AE692;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

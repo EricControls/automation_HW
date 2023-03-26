@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_PLCtoHMI_Pump" Id="{ec1a953d-cb3e-474a-93b1-de3ce1712ab2}">
+    <Declaration><![CDATA[TYPE st_PLCtoHMI_Pump :
+STRUCT
+    state : eState;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

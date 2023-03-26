@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_PLCtoHMI_Robot" Id="{bc0c60ad-ba30-41e5-a6e8-b04dc8e2f4b9}">
+    <Declaration><![CDATA[TYPE st_PLCtoHMI_Robot :
+STRUCT
+    state : eState;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

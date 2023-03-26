@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Itf Name="I_Robot" Id="{d0cd6981-b099-45f1-a761-9ed21bd385b6}">
+    <Declaration><![CDATA[INTERFACE I_Robot
+]]></Declaration>
+    <Method Name="abort" Id="{04b50c3f-6d7c-4d86-83c6-80516a2028e7}">
+      <Declaration><![CDATA[METHOD abort : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="getState" Id="{6ea73a0b-d620-4792-b9d4-dd4e241582a1}">
+      <Declaration><![CDATA[METHOD getState : eState
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="hold" Id="{a93d910b-43d9-4146-8824-eb15165fbe8d}">
+      <Declaration><![CDATA[METHOD hold : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="reset" Id="{5148fe8d-edab-4808-801f-1de4699cedba}">
+      <Declaration><![CDATA[METHOD reset : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="start" Id="{1f72d0e9-602f-4e27-8f05-6ed81a0c009f}">
+      <Declaration><![CDATA[METHOD start : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="stop" Id="{4c586d7f-6673-4489-8341-d5a1a853ca36}">
+      <Declaration><![CDATA[METHOD stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

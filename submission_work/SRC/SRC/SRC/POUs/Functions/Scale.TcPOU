@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Scale" Id="{4b96f4d6-2f77-4c1d-94c4-2f359e2a6940}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Scale : LREAL
+VAR_INPUT
+	signal : LREAL;
+	inputMin : LREAL;
+	inputMax : LREAL;
+	outputMin : LREAL;
+	outputMax : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF signal < inputMin OR signal > inputMax THEN
+	Scale := 0;
+ELSE
+	IF ((inputMax - inputMin) + outputMin) <> 0 THEN
+	    Scale := ((signal - inputMin) * (outputMax - outputMin) / (inputMax - inputMin) + outputMin);
+	ELSE
+		Scale := 0;
+	END_IF
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="Scale">
+      <LineId Id="45" Count="1" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="51" Count="2" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="47" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

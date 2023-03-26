@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Module_1_Sync_Inputs_26A07CFD" Id="{ec535f36-8d8e-413a-85d2-adf16eaa191d}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "CompactCompact_1DE69B903"}
+{attribute addProperty CRC "648051965"}
+{attribute addProperty Size "3"}
+TYPE Module_1_Sync_Inputs_26A07CFD :
+STRUCT
+	{attribute addProperty Name "Compact"}
+	Compact  : Compact_1DE69B90;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

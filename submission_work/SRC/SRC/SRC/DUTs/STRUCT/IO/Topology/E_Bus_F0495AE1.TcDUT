@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="E_Bus_F0495AE1" Id="{56b95d97-cd0e-4b79-a486-3537a5261dff}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: IODEVICETYPE_ETHERCATPROT'}
+{attribute addProperty BoxType "IODEVICETYPE_ETHERCATPROT"}
+{attribute addProperty Id "Term_1_EK1100Term_1_EK1100_53501D3255X001_KRC4_secondary_EL6695_1001KRC4_secondary_EL6695_4F43E7C3179SyncUnitsSyncUnits_67D36DDA18InputsInputs_A65FACA410OutputsOutputs_23C0ED1D6InfoDataInfoData_E68C61CD28"}
+{attribute addProperty CRC "4031339233"}
+{attribute addProperty Size "296"}
+{attribute addProperty Name "E-Bus"}
+TYPE E_Bus_F0495AE1 EXTENDS EtcMasterBase_62654B43 :
+STRUCT
+	{attribute addProperty Name "Term 1 (EK1100)"}
+	{attribute addProperty PreviousPort "E-Bus : Master"}
+	{attribute addProperty SyncUnit "default"}
+	Term_1_EK1100 : Term_1_EK1100_53501D32;
+	{attribute addProperty Name "X001 (KRC4 secondary EL6695-1001)"}
+	{attribute addProperty PreviousPort "Term 1 (EK1100) : C"}
+	{attribute addProperty SyncUnit "default"}
+	X001_KRC4_secondary_EL6695_1001 : KRC4_secondary_EL6695_4F43E7C3;
+	{attribute addProperty Name "SyncUnits"}
+	SyncUnits : SyncUnits_67D36DDA;
+	{attribute addProperty Name "Inputs"}
+	Inputs : Inputs_A65FACA4;
+	{attribute addProperty Name "Outputs"}
+	Outputs : Outputs_23C0ED1D;
+	{attribute addProperty Name "InfoData"}
+	InfoData : InfoData_E68C61CD;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

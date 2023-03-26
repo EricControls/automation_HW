@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{fa64a84f-836b-4a0c-a462-5afdf2af2f03}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>SRC</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{1b1127d4-258c-4126-be82-366f901a0905}</Application>
+    <TypeSystem>{f81f1101-8813-43aa-809f-68e18634b14b}</TypeSystem>
+    <Implicit_Task_Info>{912a25f6-bdb8-4c03-a86c-b18762bd9fd4}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{eb03c788-b53f-4c32-a905-19692d2e83df}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{37dcde19-955f-4038-a424-1222fbfb88aa}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{a0ad533f-ec17-4f81-8eb1-675b3bd8b995}</LibraryReferences>
+    <Released>false</Released>
+    <CombineIds>false</CombineIds>
+    <PreserveCompiledLibComments>false</PreserveCompiledLibComments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DUTs\ENUM\eCellState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ENUM\eState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Inputs\st_IO_Inputs.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Inputs\st_PressureTransducer_Input.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Inputs\st_Robot_Input.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Outputs\st_IO_Outputs.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Outputs\st_Pump_Output.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HandledIO\Outputs\st_Robot_Output.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\Config\ST_Configuration.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_VariantControl.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_Hydrualics.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_Cell.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_PressureTrans.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_Pump.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\inputs\st_PLCtoHMI_Robot.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\outputs\st_HMItoPLC.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\outputs\st_HMItoPLC_Cell.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\outputs\st_HMItoPLC_HMI.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\HMI\outputs\st_HMItoPLC_VariantControl.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\EtcMasterBase_62654B43.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\EtcSlaveBase_82538BE2.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\EtcSlaveBoxBase_77A0E4A7.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\EtcSlaveEndTerminalBase_866C7F0C.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\EtcSlaveTerminalBase_947E5A46.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\InputBase_8311D824.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\OutputBase_10CEE7DE.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\SyncUnitsBase_AD6C35CE.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\SyncUnitTaskBase_FCD3CBF3.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Base\SyncUnitTasksBase_7C8711EB.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Boxes\EK1100_1FC0878B.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Boxes\EL2634_7B64371E.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Boxes\EL3024_C4269E32.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Boxes\KRC4_secondary_EL6695_4F43E7C3.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Devices\SyncUnits_67D36DDA.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Devices\SyncUnitTasks_4BE01469.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Devices\SyncUnitTask_AB2F5079.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PdoEntries\FSOE_8292E3BB.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PdoEntries\FSOE_892AE692.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PdoEntries\Status_F2CE6D91.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\AI_Standard_Channel_4A394481.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Channel_42CA91F7.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Compact_1DE69B90.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\InfoData_32EB74EA.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\InfoData_6F19DB2B.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\InfoData_8649EEEB.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\InfoData_90184F0C.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\InfoData_E68C61CD.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Inputs_A65FACA4.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Inputs_Bitf_43DA21F5.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Module_1_Sync_Inputs_26A07CFD.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Module_2_Safety_Data_Bitf_8_Byte_x_D7FC8792.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Module_3_Default_IO_1C907BA3.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Outputs_23C0ED1D.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Outputs_Bitf_2744F336.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Std_In_4_Bytes_89628F68.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\Std_Out_4_Bytes_1F5BD6B7.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\WcState_0B2B16F9.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\PDOs\WcState_9091E0EB.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Topology\E_Bus_F0495AE1.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCT\IO\Topology\Term_1_EK1100_53501D32.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\BaseClasses\StateMachineBase.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\FB_Cell.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hardware_IO\FB_Topology.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\FB_HydrualicSystem.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\PressureSensor\FB_PressureSensor.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\PressureSensor\Types\FB_GenericBrand_Transceiver.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\PressureSensor\Types\FB_PressureTransceiver_Sim.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\Pump\FB_Pump.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\Pump\Types\FB_Pump_HPU.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\Pump\Types\FB_Pump_RelayOnly.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Hydrualics\Pump\Types\FB_Pump_Simulator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\6_axis\Types\FB_Fanuc.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\6_axis\Types\FB_Kuka_KRC2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\6_axis\Types\FB_Kuka_KRC4.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\6_axis\Types\FB_Robot_Simulator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\FB_Robot.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\Robots\Gantry\Types\FB_SomeGrantryRobot.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\_Interface\I_HydrualicPump.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\_Interface\I_PressureSensor.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Cell\_Interface\I_Robot.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_VariantControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Functions\Queue_FIFO.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Functions\Scale.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\HMI\FB_HMI.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\GVL_iXlinker.TcGVL">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DUTs" />
+    <Folder Include="DUTs\ENUM" />
+    <Folder Include="DUTs\STRUCT" />
+    <Folder Include="DUTs\STRUCT\HandledIO" />
+    <Folder Include="DUTs\STRUCT\HandledIO\Inputs" />
+    <Folder Include="DUTs\STRUCT\HandledIO\Outputs" />
+    <Folder Include="DUTs\STRUCT\Config" />
+    <Folder Include="DUTs\STRUCT\HMI\inputs" />
+    <Folder Include="DUTs\STRUCT\HMI\outputs" />
+    <Folder Include="DUTs\STRUCT\IO" />
+    <Folder Include="DUTs\STRUCT\IO\Base" />
+    <Folder Include="DUTs\STRUCT\IO\Boxes" />
+    <Folder Include="DUTs\STRUCT\IO\Devices" />
+    <Folder Include="DUTs\STRUCT\IO\PdoEntries" />
+    <Folder Include="DUTs\STRUCT\IO\PDOs" />
+    <Folder Include="DUTs\STRUCT\IO\Topology" />
+    <Folder Include="DUTs\STRUCT\HMI" />
+    <Folder Include="GVLs" />
+    <Folder Include="POUs\Cell" />
+    <Folder Include="POUs\Cell\Hardware_IO" />
+    <Folder Include="POUs\Cell\Hydrualics" />
+    <Folder Include="POUs\Cell\Hydrualics\PressureSensor\Types" />
+    <Folder Include="POUs\Cell\Hydrualics\ProportionalValves" />
+    <Folder Include="POUs\Cell\Hydrualics\PressureSensor" />
+    <Folder Include="POUs\Cell\Hydrualics\ProportionalValves\Types" />
+    <Folder Include="POUs\Cell\Hydrualics\Pump" />
+    <Folder Include="POUs\Cell\Hydrualics\Pump\Types" />
+    <Folder Include="POUs\Cell\BaseClasses" />
+    <Folder Include="POUs\Cell\_Interface" />
+    <Folder Include="POUs\Cell\Robots\6_axis" />
+    <Folder Include="POUs\Cell\Robots\6_axis\Types" />
+    <Folder Include="POUs\Cell\Robots\Gantry" />
+    <Folder Include="POUs\Cell\Robots\Gantry\Types" />
+    <Folder Include="POUs\Cell\Safety" />
+    <Folder Include="POUs\Cell\Robots" />
+    <Folder Include="POUs\Functions" />
+    <Folder Include="POUs\HMI" />
+    <Folder Include="VISUs" />
+    <Folder Include="POUs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_JsonXml">
+      <DefaultResolution>Tc3_JsonXml, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_JsonXml</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SRC.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+            <v n="Name">"&lt;ProjectRoot&gt;"</v>
+            <d n="SubKeys" t="Hashtable" />
+            <d n="Values" t="Hashtable" />
+          </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Itf Name="I_HydrualicPump" Id="{aabcd59f-ff77-43d6-9ac8-0bc2285ce3c8}">
+    <Declaration><![CDATA[INTERFACE I_HydrualicPump
+]]></Declaration>
+    <Method Name="getSignal" Id="{46d5db47-4070-4a63-9910-a12182a5280b}">
+      <Declaration><![CDATA[METHOD getSignal : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="getState" Id="{c9e4417b-448a-4ffe-abc9-f3ef788dfc7e}">
+      <Declaration><![CDATA[METHOD getState : eState
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="reset" Id="{1dbab4cb-1482-48a3-acd7-171fec1ab50a}">
+      <Declaration><![CDATA[METHOD reset : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="start" Id="{f40f27b6-e1f7-4bc3-b9ce-ecba66aa1007}">
+      <Declaration><![CDATA[METHOD start : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="stop" Id="{920afc6d-ae2e-4509-a1af-d878f3925590}">
+      <Declaration><![CDATA[METHOD stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

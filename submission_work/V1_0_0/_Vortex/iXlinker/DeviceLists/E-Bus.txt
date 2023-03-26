@@ -1,0 +1,5 @@
+Name;IoTreePath;IsIndependentProjectFile;FileName;FileExists;IsDisabled
+Term 1 (EK1100);E-Bus.Term 1 (EK1100);False;D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj;True;False
+Term 2 (EL3024);E-Bus.Term 1 (EK1100).Term 2 (EL3024);False;D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj;True;False
+Term 3 (EL2634);E-Bus.Term 1 (EK1100).Term 3 (EL2634);False;D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj;True;False
+X001 (KRC4 secondary EL6695-1001);E-Bus.X001 (KRC4 secondary EL6695-1001);False;D:\Users\Sapiens\Documents\GitHub\MachinaLabs\automation_HW\submission_work\V1_0_0\V1_0_0\V1_0_0.tsproj;True;False

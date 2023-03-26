@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Topology" Id="{d48ab407-8d9b-49c4-845c-3dec913e9feb}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Topology
+VAR_INPUT
+    PLCtoIO : st_IO_Outputs; // hardware outputs
+END_VAR
+VAR_OUTPUT
+	IOtoPLC : st_IO_Inputs; // hardware inputs
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// monitor IO]]></ST>
+    </Implementation>
+    <Method Name="HandleInputs" Id="{244df69a-9a92-4686-a02a-1bd2d6abbee5}">
+      <Declaration><![CDATA[METHOD HandleInputs : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// ============ Hydrualic System ============
+
+// Pressure Transducer
+IOtoPLC.pressureTransducer.value := GVL_iXlinker.E_Bus.Term_1_EK1100.Term_2_EL3024.AI_Standard_Channel_1.Value;
+
+
+// Proportional Valve
+
+
+// Robot
+IOtoPLC.robot.fault := GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_In_4_Bytes.Input_DWORD_0.0;
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="HandleOutputs" Id="{916f8403-9a6a-4b2b-ae86-1fd7e0f2a6e8}">
+      <Declaration><![CDATA[METHOD HandleOutputs : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Robot
+GVL_iXlinker.E_Bus.X001_KRC4_secondary_EL6695_1001.Module_3_Default_IO.Std_Out_4_Bytes.Output_DWORD_0.0 := PLCtoIO.robot.fault;
+
+// Pump
+GVL_iXlinker.E_Bus.Term_1_EK1100.Term_3_EL2634.Channel_1.Output := PLCtoIO.hydroPump.On;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Topology">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Topology.HandleInputs">
+      <LineId Id="22" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="29" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Topology.HandleOutputs">
+      <LineId Id="10" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

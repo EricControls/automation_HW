@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_VariantControl" Id="{18483531-1e40-488c-97ed-b09f46c6f68d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_VariantControl
+VAR_IN_OUT
+    Config : ST_Configuration;
+END_VAR
+VAR_INPUT
+	bLoadJSONFirstScan : BOOL; // Executes on rising edge
+    bWriteJSON : BOOL;
+END_VAR
+VAR_OUTPUT
+	bDone : BOOL;
+	bBusy : BOOL;
+	
+	//stConfigOut : ST_Configuration;
+    bLoadError : BOOL;
+END_VAR
+VAR
+	//JSON Settings handling variables
+	bSaveJSON					: BOOL;
+	bHasMember 					: BOOL;
+	sCurrentMemberName 			: STRING;
+	sJsonDoc       				: STRING(255);   
+	sJsonDoc2      				: STRING(2000);   	
+	sFilePath 					: STRING := 'C:\TwinCAT\MachineConfig.json';		
+	
+	rTrigSaveJSON 				: R_TRIG;
+	fTrigLoadJSON 				: R_TRIG;
+	
+	//Variables for JSON handling
+	fbJSONSaveLoad				: FB_JsonDomParser;
+	fbJson         				: FB_JsonSaxWriter;  
+	fbJsonDataType 				: FB_JsonReadWriteDataType;  
+	fbJsonDOM 					: FB_JsonDomParser;
+	jsonDoc 					: SJsonValue;
+	jsonProp 					: SJsonValue;
+
+	bLoadDone : BOOL;
+	bLoadExecute : BOOL;
+	bLoadJson : BOOL;
+    
+    bFoundSomething : BOOL;
+    bFoundBoolValue : BOOL;
+    bFoundStringValue : STRING;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rTrigSaveJSON(CLK := bWriteJSON); // to manually create file after changes or what not toggle this to export json file, don't forget to first toggle bits from stConfig!
+IF rTrigSaveJSON.Q THEN
+	
+	bWriteJSON := FALSE;
+	
+	fbJson.ResetDocument();
+	fbJsonDataType.AddJsonValueFromSymbol(fbJson, 'ST_Configuration', SIZEOF(Config), ADR(Config));
+	sJsonDoc := fbJson.GetDocument();
+	fbJson.CopyDocument(sJsonDoc2, SIZEOF(sJsonDoc2));
+	fbJSONSaveLoad.ParseDocument(sJsonDoc2);
+
+	bSaveJSON := TRUE;
+	bLoadDone := TRUE;
+	bLoadError := FALSE;
+	
+END_IF
+
+
+IF fbJSONSaveLoad.SaveDocumentToFile(sFilePath, bSaveJSON) THEN
+	bBusy := FALSE;
+	bDone := TRUE;
+END_IF
+
+
+IF bLoadJSONFirstScan AND NOT bLoadExecute THEN
+	bLoadExecute := bLoadJSONFirstScan;
+	bBusy := TRUE;
+END_IF
+
+
+IF fbJSONSaveLoad.LoadDocumentFromFile(sFilePath, bLoadExecute) AND NOT bLoadDone THEN 
+	bLoadDone:= TRUE;
+	bLoadExecute := FALSE;
+	bLoadJson := TRUE;
+END_IF
+
+
+IF NOT bLoadExecute AND NOT bLoadDone THEN
+	bLoadError := TRUE;
+    bDone := TRUE;
+END_IF
+
+
+fTrigLoadJSON(CLK := bLoadJson); //trigger for load file done
+IF fTrigLoadJSON.Q THEN
+	
+    fbJSONSaveLoad.CopyDocument(sJsonDoc2, SIZEOF(sJsonDoc2));
+
+    jsonDoc := fbJsonDOM.ParseDocument(sJsonDoc2);
+
+    Config.sVersionHW := GetString('sVersionHW');
+    Config.sVersionSW := GetString('sVersionSW');
+    Config.bIsV1_0_0 := GetBool('bIsV1_0_0');
+    Config.bIsSimulator := GetBool('bIsSimulator');
+
+    // add as many as you desire below vvvvv
+	
+	bLoadJson := FALSE;
+    bLoadError := FALSE;
+	bDone := TRUE;
+	bBusy := FALSE;
+	
+END_IF
+
+]]></ST>
+    </Implementation>
+    <Method Name="GetBool" Id="{6f1eb1f3-a44d-4ff9-8384-d281afa5c965}">
+      <Declaration><![CDATA[METHOD GetBool : BOOL
+VAR_INPUT
+    memberName : STRING;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[sCurrentMemberName := memberName;
+bHasMember := fbJsonDOM.HasMember(jsonDoc, sCurrentMemberName);
+IF (bHasMember) THEN
+    bHasMember := FALSE;
+    jsonProp := fbJsonDOM.FindMember(jsonDoc, sCurrentMemberName);
+    GetBool := fbJsonDOM.GetBool(jsonProp);
+ELSE
+    GetBool := FALSE;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetString" Id="{9c2dd447-bdf3-4426-9e54-c3876788d12d}">
+      <Declaration><![CDATA[METHOD GetString : STRING
+VAR_INPUT
+    memberName : STRING;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[sCurrentMemberName := memberName;
+bHasMember := fbJsonDOM.HasMember(jsonDoc, sCurrentMemberName);
+IF (bHasMember) THEN
+    bHasMember := FALSE;
+    jsonProp := fbJsonDOM.FindMember(jsonDoc, sCurrentMemberName);
+    GetString := fbJsonDOM.GetString(jsonProp);
+ELSE
+    GetString := '';
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_VariantControl">
+      <LineId Id="18" Count="10" />
+      <LineId Id="523" Count="0" />
+      <LineId Id="497" Count="0" />
+      <LineId Id="496" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="514" Count="0" />
+      <LineId Id="513" Count="0" />
+      <LineId Id="509" Count="0" />
+      <LineId Id="520" Count="0" />
+      <LineId Id="522" Count="0" />
+      <LineId Id="521" Count="0" />
+      <LineId Id="645" Count="0" />
+      <LineId Id="484" Count="0" />
+      <LineId Id="483" Count="0" />
+      <LineId Id="485" Count="0" />
+      <LineId Id="519" Count="0" />
+      <LineId Id="486" Count="0" />
+      <LineId Id="646" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="481" Count="1" />
+      <LineId Id="475" Count="0" />
+      <LineId Id="479" Count="0" />
+      <LineId Id="473" Count="0" />
+      <LineId Id="512" Count="0" />
+      <LineId Id="487" Count="0" />
+      <LineId Id="489" Count="0" />
+      <LineId Id="494" Count="0" />
+      <LineId Id="563" Count="0" />
+      <LineId Id="491" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="474" Count="0" />
+      <LineId Id="37" Count="2" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="696" Count="0" />
+      <LineId Id="686" Count="0" />
+      <LineId Id="663" Count="0" />
+      <LineId Id="647" Count="0" />
+      <LineId Id="450" Count="0" />
+      <LineId Id="695" Count="0" />
+      <LineId Id="605" Count="0" />
+      <LineId Id="408" Count="0" />
+      <LineId Id="508" Count="0" />
+      <LineId Id="525" Count="0" />
+      <LineId Id="409" Count="0" />
+      <LineId Id="518" Count="0" />
+      <LineId Id="410" Count="2" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VariantControl.GetBool">
+      <LineId Id="10" Count="5" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VariantControl.GetString">
+      <LineId Id="7" Count="5" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

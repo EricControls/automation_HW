@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="KRC4_secondary_EL6695_4F43E7C3" Id="{360892bc-6c67-499c-b8a5-a05b40f3a6af}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty VendorId "#x000060c8"}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Description "KRC4 secondary EL6695-1001"}
+{attribute addProperty Physics "YY"}
+{attribute addProperty Id "Module_1_Sync_InputsModule_1_Sync_Inputs_26A07CFD3Module_2_Safety_Data_Bitf_8_Byte_xModule_2_Safety_Data_Bitf_8_Byte_x_D7FC8792150Module_3_Default_IOModule_3_Default_IO_1C907BA38WcStateAT %I*WcState_9091E0EB2InfoDataAT %I*InfoData_90184F0C16"}
+{attribute addProperty CRC "1329850307"}
+{attribute addProperty Size "179"}
+TYPE KRC4_secondary_EL6695_4F43E7C3 EXTENDS EtcSlaveBoxBase_77A0E4A7 :
+STRUCT
+	{attribute addProperty Name "Module_1_Sync_Inputs"}
+	Module_1_Sync_Inputs : Module_1_Sync_Inputs_26A07CFD;
+	{attribute addProperty Name "Module_2_Safety_Data_Bitf_8_Byte_x"}
+	Module_2_Safety_Data_Bitf_8_Byte_x : Module_2_Safety_Data_Bitf_8_Byte_x_D7FC8792;
+	{attribute addProperty Name "Module_3_Default_IO"}
+	Module_3_Default_IO : Module_3_Default_IO_1C907BA3;
+	{attribute addProperty Name "WcState"}
+	WcState : WcState_9091E0EB;
+	{attribute addProperty Name "InfoData"}
+	InfoData : InfoData_90184F0C;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_PressureTransceiver_Sim" Id="{59b5bed2-690e-4dc4-8e47-89fe44abd589}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PressureTransceiver_Sim EXTENDS FB_PressureSensor
+VAR_INPUT
+    bPumpIsON : BOOL; // generates signal based on pump input
+    simCellState : eCellState;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    signalClimbTON : TON := (PT := T#25MS);
+    signalFallTON : TON := (PT := T#50ms);
+    
+    simPressureDropTON : TON := (PT := T#70S);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bPumpIsON AND (curState = eState_Idle) THEN
+    // simulate a rising signal when pump is ON
+    nextState := eState_Startup;
+END_IF
+
+ExecuteState();
+IF NOT (nextState = curState)THEN
+    StateTransition();
+END_IF]]></ST>
+    </Implementation>
+    <Folder Name="States" Id="{23f1721b-6be5-4c06-97da-ab16425c1119}" />
+    <Action Name="ExecuteState" Id="{5ae98e6b-9a60-4f9b-a5f8-093aed8e4c6a}">
+      <Implementation>
+        <ST><![CDATA[
+
+CASE curState OF
+	eState_Idle: ExecuteState_Idle();
+	eState_Startup: ExecuteState_Startup();
+	eState_Running: ExecuteState_Running();
+	eState_Complete: ExecuteState_Complete();
+	eState_Error: ExecuteState_Error();
+	eState_Independent: ExecuteState_Independent();
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Complete" Id="{dc68b15a-d715-4c4b-93c9-5479110e9dc2}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Error" Id="{d748b74a-867e-463d-b64c-5e1cc7c851d1}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Idle" Id="{079af7d6-c033-4459-9d39-a9f287a5a4d5}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Independent" Id="{ea546268-67db-4795-bfb3-aad8e1d39961}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Running" Id="{8e2ee644-74d5-4ae4-9033-a5dabc1edd00}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[IF bPumpIsON THEN
+
+    // psi climbs
+    signalClimbTON(IN := TRUE);
+    IF signalClimbTON.Q THEN
+        fBufferedSignal := fBufferedSignal + 0.1;
+        signalClimbTON(IN := FALSE);
+    END_IF
+
+ELSE
+
+    // psi falls
+    IF fBufferedSignal < 2 THEN // if somehow signal falls below
+        fBufferedSignal := 2;
+    END_IF
+    IF fBufferedSignal > 2 THEN // only if signal is more than hardware min decrease it
+        signalFallTON(IN := TRUE);
+        IF signalFallTON.Q THEN
+            fBufferedSignal := fBufferedSignal - 0.01;
+            signalFallTON(IN := FALSE);
+        END_IF
+	END_IF
+
+END_IF
+
+
+// every nth seconds simulate a pressure drop error
+IF simCellState = eCellState_Automatic OR simCellState = eCellState_Manual THEN
+    simPressureDropTON(IN := TRUE);
+    IF simPressureDropTON.Q THEN
+        fBufferedSignal := 2;
+        simPressureDropTON(IN := FALSE);
+    END_IF
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ExecuteState_Startup" Id="{4ea1d7b5-5cba-40af-8421-79cf0820c282}" FolderPath="States\">
+      <Implementation>
+        <ST><![CDATA[// Build up pressure first
+
+nextState := eState_Running;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="getSignal" Id="{b6f6ab00-7a39-447b-84ae-33ea9cce26c7}">
+      <Declaration><![CDATA[METHOD getSignal : LREAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// return signal value to outside world
+getSignal := fBufferedSignal;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="setSignal" Id="{34e3483a-b4a0-4f13-8263-3003bbd89c16}">
+      <Declaration><![CDATA[METHOD setSignal : BOOL
+VAR_INPUT
+    input : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fInputSignal := input;]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="StateTransition" Id="{6ec8632e-e4bb-4075-8cb2-71d1a4af125c}">
+      <Implementation>
+        <ST><![CDATA[//reset timers
+
+SUPER^.StateTransition();]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_PressureTransceiver_Sim">
+      <LineId Id="9" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="28" Count="2" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState">
+      <LineId Id="23" Count="8" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Complete">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Error">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Idle">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Independent">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Running">
+      <LineId Id="1" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="27" Count="3" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="69" Count="3" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="78" Count="1" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="84" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.ExecuteState_Startup">
+      <LineId Id="65" Count="1" />
+      <LineId Id="41" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.getSignal">
+      <LineId Id="12" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.setSignal">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransceiver_Sim.StateTransition">
+      <LineId Id="7" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

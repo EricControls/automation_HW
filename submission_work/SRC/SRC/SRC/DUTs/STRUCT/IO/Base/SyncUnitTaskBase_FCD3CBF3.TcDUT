@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="SyncUnitTaskBase_FCD3CBF3" Id="{9de62147-9d73-43af-928c-72951e7787fa}">
+    <Declaration><![CDATA[
+TYPE SyncUnitTaskBase_FCD3CBF3 :
+STRUCT
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

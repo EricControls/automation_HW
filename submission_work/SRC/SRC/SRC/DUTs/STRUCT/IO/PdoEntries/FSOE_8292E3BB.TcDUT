@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="FSOE_8292E3BB" Id="{518231c4-be1e-4e96-82be-811345b13d6b}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "FSOE_CommandUSINT1FSOE_Out_D_0_RES_1BOOL1FSOE_Out_D_0_NHEBOOL1FSOE_Out_D_0_BSBOOL1FSOE_Out_D_0_QBSBOOL1FSOE_Out_D_0_SHS1BOOL1FSOE_Out_D_0_SHS2BOOL1FSOE_Out_D_0_E2BOOL1FSOE_Out_D_0_E7BOOL1FSOE_Out_D_0_US2BOOL1FSOE_Out_D_0_SBHBOOL1FSOE_Out_D_0_RES_4BOOL1FSOE_Out_D_0_RES_5BOOL1FSOE_Out_D_0_RES_6BOOL1FSOE_Out_D_0_RES_7BOOL1FSOE_Out_D_0_RES_8BOOL1FSOE_Out_D_0_SPABOOL1FSOE_Master_CRC_0UINT2FSOE_Out_D_1_JRBOOL1FSOE_Out_D_1_VREDBOOL1FSOE_Out_D_1_SBH_1BOOL1FSOE_Out_D_1_SBH_2BOOL1FSOE_Out_D_1_SBH_3BOOL1FSOE_Out_D_1_SBH_4BOOL1FSOE_Out_D_1_SBH_5BOOL1FSOE_Out_D_1_SBH_6BOOL1FSOE_Out_D_1_RES_1BOOL1FSOE_Out_D_1_RES_2BOOL1FSOE_Out_D_1_RES_3BOOL1FSOE_Out_D_1_RES_4BOOL1FSOE_Out_D_1_RES_5BOOL1FSOE_Out_D_1_RES_6BOOL1FSOE_Out_D_1_RES_7BOOL1FSOE_Out_D_1_RES_8BOOL1FSOE_Master_CRC_1UINT2FSOE_Out_D_2_UER1BOOL1FSOE_Out_D_2_UER2BOOL1FSOE_Out_D_2_UER3BOOL1FSOE_Out_D_2_UER4BOOL1FSOE_Out_D_2_UER5BOOL1FSOE_Out_D_2_UER6BOOL1FSOE_Out_D_2_UER7BOOL1FSOE_Out_D_2_UER8BOOL1FSOE_Out_D_2_UER9BOOL1FSOE_Out_D_2_UER10BOOL1FSOE_Out_D_2_UER11BOOL1FSOE_Out_D_2_UER12BOOL1FSOE_Out_D_2_UER13BOOL1FSOE_Out_D_2_UER14BOOL1FSOE_Out_D_2_UER15BOOL1FSOE_Out_D_2_UER16BOOL1FSOE_Master_CRC_2UINT2FSOE_Out_D_3_WZ1BOOL1FSOE_Out_D_3_WZ2BOOL1FSOE_Out_D_3_WZ3BOOL1FSOE_Out_D_3_WZ4BOOL1FSOE_Out_D_3_WZ5BOOL1FSOE_Out_D_3_WZ6BOOL1FSOE_Out_D_3_WZ7BOOL1FSOE_Out_D_3_WZ8BOOL1FSOE_Out_D_3_WZ9BOOL1FSOE_Out_D_3_WZ10BOOL1FSOE_Out_D_3_WZ11BOOL1FSOE_Out_D_3_WZ12BOOL1FSOE_Out_D_3_WZ13BOOL1FSOE_Out_D_3_WZ14BOOL1FSOE_Out_D_3_WZ15BOOL1FSOE_Out_D_3_WZ16BOOL1FSOE_Master_CRC_3UINT2FSOE_ConnIDUINT2"}
+{attribute addProperty CRC "2190664635"}
+{attribute addProperty Size "75"}
+TYPE FSOE_8292E3BB :
+STRUCT
+	{attribute addProperty Name "FSOE_Command"}
+	FSOE_Command : USINT;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_1"}
+	FSOE_Out_D_0_RES_1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_NHE"}
+	FSOE_Out_D_0_NHE : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_BS"}
+	FSOE_Out_D_0_BS : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_QBS"}
+	FSOE_Out_D_0_QBS : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_SHS1"}
+	FSOE_Out_D_0_SHS1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_SHS2"}
+	FSOE_Out_D_0_SHS2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_E2"}
+	FSOE_Out_D_0_E2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_E7"}
+	FSOE_Out_D_0_E7 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_US2"}
+	FSOE_Out_D_0_US2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_SBH"}
+	FSOE_Out_D_0_SBH : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_4"}
+	FSOE_Out_D_0_RES_4 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_5"}
+	FSOE_Out_D_0_RES_5 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_6"}
+	FSOE_Out_D_0_RES_6 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_7"}
+	FSOE_Out_D_0_RES_7 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_RES_8"}
+	FSOE_Out_D_0_RES_8 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_0_SPA"}
+	FSOE_Out_D_0_SPA : BOOL;
+	{attribute addProperty Name "FSOE_Master_CRC_0"}
+	FSOE_Master_CRC_0 : UINT;
+	{attribute addProperty Name "FSOE_Out_D_1_JR"}
+	FSOE_Out_D_1_JR : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_VRED"}
+	FSOE_Out_D_1_VRED : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_1"}
+	FSOE_Out_D_1_SBH_1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_2"}
+	FSOE_Out_D_1_SBH_2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_3"}
+	FSOE_Out_D_1_SBH_3 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_4"}
+	FSOE_Out_D_1_SBH_4 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_5"}
+	FSOE_Out_D_1_SBH_5 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_SBH_6"}
+	FSOE_Out_D_1_SBH_6 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_1"}
+	FSOE_Out_D_1_RES_1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_2"}
+	FSOE_Out_D_1_RES_2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_3"}
+	FSOE_Out_D_1_RES_3 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_4"}
+	FSOE_Out_D_1_RES_4 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_5"}
+	FSOE_Out_D_1_RES_5 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_6"}
+	FSOE_Out_D_1_RES_6 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_7"}
+	FSOE_Out_D_1_RES_7 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_1_RES_8"}
+	FSOE_Out_D_1_RES_8 : BOOL;
+	{attribute addProperty Name "FSOE_Master_CRC_1"}
+	FSOE_Master_CRC_1 : UINT;
+	{attribute addProperty Name "FSOE_Out_D_2_UER1"}
+	FSOE_Out_D_2_UER1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER2"}
+	FSOE_Out_D_2_UER2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER3"}
+	FSOE_Out_D_2_UER3 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER4"}
+	FSOE_Out_D_2_UER4 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER5"}
+	FSOE_Out_D_2_UER5 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER6"}
+	FSOE_Out_D_2_UER6 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER7"}
+	FSOE_Out_D_2_UER7 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER8"}
+	FSOE_Out_D_2_UER8 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER9"}
+	FSOE_Out_D_2_UER9 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER10"}
+	FSOE_Out_D_2_UER10 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER11"}
+	FSOE_Out_D_2_UER11 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER12"}
+	FSOE_Out_D_2_UER12 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER13"}
+	FSOE_Out_D_2_UER13 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER14"}
+	FSOE_Out_D_2_UER14 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER15"}
+	FSOE_Out_D_2_UER15 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_2_UER16"}
+	FSOE_Out_D_2_UER16 : BOOL;
+	{attribute addProperty Name "FSOE_Master_CRC_2"}
+	FSOE_Master_CRC_2 : UINT;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ1"}
+	FSOE_Out_D_3_WZ1 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ2"}
+	FSOE_Out_D_3_WZ2 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ3"}
+	FSOE_Out_D_3_WZ3 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ4"}
+	FSOE_Out_D_3_WZ4 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ5"}
+	FSOE_Out_D_3_WZ5 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ6"}
+	FSOE_Out_D_3_WZ6 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ7"}
+	FSOE_Out_D_3_WZ7 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ8"}
+	FSOE_Out_D_3_WZ8 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ9"}
+	FSOE_Out_D_3_WZ9 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ10"}
+	FSOE_Out_D_3_WZ10 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ11"}
+	FSOE_Out_D_3_WZ11 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ12"}
+	FSOE_Out_D_3_WZ12 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ13"}
+	FSOE_Out_D_3_WZ13 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ14"}
+	FSOE_Out_D_3_WZ14 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ15"}
+	FSOE_Out_D_3_WZ15 : BOOL;
+	{attribute addProperty Name "FSOE_Out_D_3_WZ16"}
+	FSOE_Out_D_3_WZ16 : BOOL;
+	{attribute addProperty Name "FSOE_Master_CRC_3"}
+	FSOE_Master_CRC_3 : UINT;
+	{attribute addProperty Name "FSOE_ConnID"}
+	FSOE_ConnID : UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

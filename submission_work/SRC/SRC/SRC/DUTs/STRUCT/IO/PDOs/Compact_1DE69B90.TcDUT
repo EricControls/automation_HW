@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Compact_1DE69B90" Id="{e6669897-5b50-4cb9-beab-986ebb30d550}">
+    <Declaration><![CDATA[{attribute 'GeneratedUsingTerminal: KRC4 secondary EL6695-1001-0004'}
+{attribute addProperty BoxType "KRC4 secondary EL6695-1001-0004"}
+{attribute addProperty Id "TxPDO_toggleAT %I*BOOL1TxPDO_stateAT %I*BOOL1External_device_not_connectedAT %I*BOOL1"}
+{attribute addProperty CRC "501652368"}
+{attribute addProperty Size "3"}
+TYPE Compact_1DE69B90 EXTENDS InputBase_8311D824 :
+STRUCT
+	{attribute addProperty Name "TxPDO_toggle"}
+	TxPDO_toggle AT %I* : BOOL;
+	{attribute addProperty Name "TxPDO_state"}
+	TxPDO_state AT %I* : BOOL;
+	{attribute addProperty Name "External_device_not_connected"}
+	External_device_not_connected AT %I* : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

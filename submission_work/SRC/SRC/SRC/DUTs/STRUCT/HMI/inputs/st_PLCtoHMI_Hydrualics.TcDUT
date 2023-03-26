@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="st_PLCtoHMI_Hydrualics" Id="{528ccb18-7dd5-4e7d-bebf-a7f76dd5552c}">
+    <Declaration><![CDATA[TYPE st_PLCtoHMI_Hydrualics :
+STRUCT
+    state : eState;
+    psiSensor : st_PLCtoHMI_PressureTrans;
+    pump : st_PLCtoHMI_Pump;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

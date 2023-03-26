@@ -1,0 +1,6 @@
+# latex libs
+*.cls
+
+# latex auto generated
+*.tex
+*.bbl
